@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Profile">
+
+	<resultMap type="Profile" id="com.master.mybatis.model.Profile">
+		<result property="profileId" column="profileId" />
+		<result property="profileName" column="profileName" />
+	</resultMap>
+
+	<select id="getAll" resultMap="Profile">
+		SELECT * FROM sh-manager_db.Profiles
+	</select>
+
+	<select id="getById" parameterType="int" resultMap="Profile">
+		SELECT * FROM
+		sh-manager_db.Profiles WHERE profileId=#{profileId}
+	</select>
+
+	<select id="getByUserId" parameterType="int" resultMap="Profile">
+		SELECT * FROM
+		sh-manager_db.Profiles WHERE userId_fk=#{userId}
+	</select>
+
+	<delete id="deleteById" parameterType="int">
+		DELETE FROM sh-manager_db.Profiles WHERE
+		profileId=#{profileId}
+	</delete>
+
+	<insert id="insert" parameterType="Profile">
+		INSERT INTO sh-manager_db.Profiles (profileName)
+		VALUES
+		(#{profileName});
+		<selectKey keyProperty="id" resultType="int" order="AFTER">
+			select
+			last_insert_id() as id
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterType="Profile">
+		UPDATE sh-manager_db.Profiles
+		SET
+			profileName=#{profileName},
+		WHERE profileId=#{profileId}
+	</update>
+
+</mapper>
