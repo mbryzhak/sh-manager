@@ -13,7 +13,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/sh-manager_db" />
+				<property name="url" value="jdbc:mysql://localhost:3306/sh_manager_db" />
 				<property name="username" value="root" />
 				<property name="password" value="password" />
 			</dataSource>
@@ -21,8 +21,8 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="../map/UserMap.xml" />
-		<mapper resource="../map/ProfileMap.xml" />
+		<mapper resource="sh-manager/mybatis/map/UserMap.xml" />
+		<mapper resource="sh-manager/mybatis/map/ProfileMap.xml" />
 	</mappers>
 
 </configuration>							 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<classPathEntry
+		location="${m2repo.home}/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
+
+	<context id="sh_manager" targetRuntime="MyBatis3">
+
+		<jdbcConnection 
+				driverClass="com.mysql.jdbc.Driver"
+				connectionURL="jdbc:mysql://localhost:3306/sh_manager_db" 
+				userId="root" 
+				password="password">
+		</jdbcConnection>
+
+		<!-- 
+			Create the java model objects
+		 -->
+		<javaModelGenerator 
+				targetPackage="com.master.mybatisgenerated"
+				targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator
+				targetPackage="sh-manager/mybatis/sqlmap"
+				targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 
+			DAO
+		 -->
+		<javaClientGenerator 
+				targetPackage="com.master.mybatisgenerated"
+				targetProject="src/main/java" 
+				type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 
+			Tables to process
+		 -->
+		<table tableName="Users" domainObjectName="User">
+			<generatedKey column="idUser" sqlStatement="select last_insert_id() as id"/>
+			<columnOverride property="userUUID" column="userUUID" />
+			<columnOverride property="userEmail" column="userEmail" />
+			<columnOverride property="userDateCreated" column="userDateCreated" />
+			<columnOverride property="userRole" column="userRole" />
+			<columnOverride property="userFirstName" column="userFirstName" />
+			<columnOverride property="userLastName" column="userLastName" />
+			<columnOverride property="userSex" column="userSex" />
+		</table>
+
+		<table tableName="UserCredentials" domainObjectName="UserCredentials">
+			<generatedKey column="idCredential" sqlStatement="select last_insert_id() as id"/>
+			<columnOverride property="credentialUUID" column="credentialUUID" />
+			<columnOverride property="userPassword" column="userPassword" />
+			<columnOverride property="userId" column="Users_idUser" />
+		</table>
+		
+		<table tableName="Profiles" domainObjectName="Profile">
+			<generatedKey column="idProfile" sqlStatement="select last_insert_id() as id"/>
+			<columnOverride property="profileUUID" column="profileUUID" />
+			<columnOverride property="profileName" column="profileName" />
+			<columnOverride property="electricityRate" column="electricityRate" />
+			<columnOverride property="waterRate" column="waterRate" />
+			<columnOverride property="gasRate" column="gasRate" />
+			<columnOverride property="lightsRate" column="lightsRate" />
+			<columnOverride property="temperatureRate" column="temperatureRate" />
+			<columnOverride property="fireProtectionRate" column="fireProtectionRate" />
+			<columnOverride property="stealProtectionRate" column="stealProtectionRate" />
+			<columnOverride property="userId" column="Users_idUser" />
+		</table>
+		
+		<table tableName="Houses" domainObjectName="House">
+			<generatedKey column="idHouse" sqlStatement="select last_insert_id() as id"/>
+			<columnOverride property="houseUUID" column="houseUUID" />
+			<columnOverride property="houseName" column="houseName" />
+			<columnOverride property="houseAddress" column="houseAddress" />
+			<columnOverride property="houseType" column="houseType" />
+			<columnOverride property="userId" column="Users_idUser" />
+			<columnOverride property="profileId" column="Profiles_idProfile" />
+		</table>
+
+	</context>
+</generatorConfiguration>
