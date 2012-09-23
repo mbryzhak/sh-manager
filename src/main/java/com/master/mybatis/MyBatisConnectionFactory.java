@@ -7,17 +7,19 @@ import java.io.Reader;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
 
 public class MyBatisConnectionFactory {
 
 	private static SqlSessionFactory sqlSessionFactory;
-
+	private static String resource = "sh-manager/mybatis/config/SqlMapConfig.xml";
+	
+	public static final Logger LOGGER = Logger.getLogger(MyBatisConnectionFactory.class);
+	
 	static {
-
 		try {
-			String resource = "sh-manager/mybatis/config/SqlMapConfig.xml";
 			Reader reader = Resources.getResourceAsReader(resource);
-
+			
 			if (sqlSessionFactory == null) {
 				sqlSessionFactory = new SqlSessionFactoryBuilder()
 						.build(reader);
@@ -26,17 +28,13 @@ public class MyBatisConnectionFactory {
 			System.out.println("Properties readed successfully");
 
 		} catch (FileNotFoundException notFoundException) {
-			System.err.println(notFoundException);
+			LOGGER.error(notFoundException.getMessage());
 		} catch (IOException ioException) {
-			System.err.println(ioException);
+			LOGGER.error(ioException.getMessage());
 		}
 	}
 
-	public static SqlSessionFactory getSqlSessionFactory() throws Exception {
-		if (sqlSessionFactory == null) {
-			throw new Exception("Invalid SQL Session Factoty");
-		} else {
-			return sqlSessionFactory;
-		}
+	public static SqlSessionFactory getSqlSessionFactory() {
+		return sqlSessionFactory != null ? sqlSessionFactory : null;		
 	}
 }

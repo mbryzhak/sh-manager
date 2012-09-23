@@ -4,8 +4,10 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias alias="User" type="com.master.mybatis.model.User" />
-		<typeAlias alias="Profile" type="com.master.mybatis.model.Profile" />
+		<typeAlias alias="User" type="com.master.mybatisgenerated.User" />
+		<typeAlias alias="Profile" type="com.master.mybatisgenerated.Profile" />
+		<typeAlias alias="House" type="com.master.mybatisgenerated.House" />
+		<typeAlias alias="UserCredentials" type="com.master.mybatisgenerated.UserCredentials" />
 	</typeAliases>
 
 	<environments default="development">
@@ -21,8 +23,10 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="sh-manager/mybatis/map/UserMap.xml" />
-		<mapper resource="sh-manager/mybatis/map/ProfileMap.xml" />
+		<mapper resource="sh-manager/mybatis/sqlmap/UserMapper.xml" />
+		<mapper resource="sh-manager/mybatis/sqlmap/ProfileMapper.xml" />
+		<mapper resource="sh-manager/mybatis/sqlmap/HouseMapper.xml" />
+		<mapper resource="sh-manager/mybatis/sqlmap/UserCredentialsMapper.xml" />
 	</mappers>
 
 </configuration>							 
