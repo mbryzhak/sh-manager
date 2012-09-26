@@ -48,7 +48,7 @@
 		 -->
 		<table tableName="Users" domainObjectName="User">
 			<generatedKey column="idUser" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="userUUID" column="userUUID" />
+			<columnOverride property="userUUID" column="userUUID" javaType="java.lang.UUID" jdbcType="VARCHAR" />
 			<columnOverride property="userEmail" column="userEmail" />
 			<columnOverride property="userDateCreated" column="userDateCreated" />
 			<columnOverride property="userRole" column="userRole" />
@@ -59,14 +59,14 @@
 
 		<table tableName="UserCredentials" domainObjectName="UserCredentials">
 			<generatedKey column="idCredential" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="credentialUUID" column="credentialUUID" />
+			<columnOverride property="credentialUUID" column="credentialUUID" javaType="java.lang.UUID" jdbcType="VARCHAR" />
 			<columnOverride property="userPassword" column="userPassword" />
 			<columnOverride property="userId" column="Users_idUser" />
 		</table>
 		
 		<table tableName="Profiles" domainObjectName="Profile">
 			<generatedKey column="idProfile" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="profileUUID" column="profileUUID" />
+			<columnOverride property="profileUUID" column="profileUUID" javaType="java.lang.UUID" jdbcType="VARCHAR" />
 			<columnOverride property="profileName" column="profileName" />
 			<columnOverride property="electricityRate" column="electricityRate" />
 			<columnOverride property="waterRate" column="waterRate" />
@@ -80,7 +80,7 @@
 		
 		<table tableName="Houses" domainObjectName="House">
 			<generatedKey column="idHouse" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="houseUUID" column="houseUUID" />
+			<columnOverride property="houseUUID" column="houseUUID" javaType="java.lang.UUID" jdbcType="VARCHAR" />
 			<columnOverride property="houseName" column="houseName" />
 			<columnOverride property="houseAddress" column="houseAddress" />
 			<columnOverride property="houseType" column="houseType" />

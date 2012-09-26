@@ -3,12 +3,10 @@
 							   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<typeAliases>
-		<typeAlias alias="User" type="com.master.mybatisgenerated.User" />
-		<typeAlias alias="Profile" type="com.master.mybatisgenerated.Profile" />
-		<typeAlias alias="House" type="com.master.mybatisgenerated.House" />
-		<typeAlias alias="UserCredentials" type="com.master.mybatisgenerated.UserCredentials" />
-	</typeAliases>
+	<typeHandlers>
+		<typeHandler javaType="java.util.UUID" jdbcType="VARCHAR" 
+			handler="com.master.mybatis.typehandler.UuidTypeHandler" />
+	</typeHandlers>
 
 	<environments default="development">
 		<environment id="development">
@@ -28,5 +26,5 @@
 		<mapper resource="sh-manager/mybatis/sqlmap/HouseMapper.xml" />
 		<mapper resource="sh-manager/mybatis/sqlmap/UserCredentialsMapper.xml" />
 	</mappers>
-
+	
 </configuration>							 

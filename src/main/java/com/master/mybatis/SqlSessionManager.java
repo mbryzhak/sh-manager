@@ -4,9 +4,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
-public class ManageSqlSession {
+/**
+ * This class is used for opening new sql session
+ *
+ * @author mbryzhak
+ */
+public class SqlSessionManager {
 
-	public static final Logger LOGGER = Logger.getLogger(ManageSqlSession.class);
+	public static final Logger LOGGER = Logger.getLogger(SqlSessionManager.class);
 	
 	public static SqlSession openSqlSession() throws Exception {
 
