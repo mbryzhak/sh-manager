@@ -23,6 +23,7 @@
 	</developers>
 	
 	<properties>
+        <dev.env>dev</dev.env>
 		<m2repo.home>${user.home}/.m2</m2repo.home>
 		<sh.loglevel>INFO</sh.loglevel>
         <!-- TODO: ${project.basedir} don't woks !!! -->
