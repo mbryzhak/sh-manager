@@ -8,3 +8,5 @@
 /.settings/**
 /db/**
 .project
+sh-manager.iml
+.idea

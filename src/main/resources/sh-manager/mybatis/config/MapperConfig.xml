@@ -6,6 +6,8 @@
 	<typeHandlers>
 		<typeHandler javaType="java.util.UUID" jdbcType="VARCHAR" 
 			handler="com.master.mybatis.typehandler.UuidTypeHandler" />
+        <typeHandler javaType="java.lang.Enum" jdbcType="VARCHAR"
+            handler="com.master.mybatis.typehandler.EnumTypeHandler" />
 	</typeHandlers>
 
 	<environments default="development">

@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 public class MyBatisConnectionFactory {
 
 	private static SqlSessionFactory sqlSessionFactory;
-	private static String resource = "sh-manager/mybatis/config/SqlMapConfig.xml";
+	private static String resource = "sh-manager/mybatis/config/MapperConfig.xml";
 	
 	public static final Logger LOGGER = Logger.getLogger(MyBatisConnectionFactory.class);
 	
@@ -24,9 +24,7 @@ public class MyBatisConnectionFactory {
 				sqlSessionFactory = new SqlSessionFactoryBuilder()
 						.build(reader);
 			}
-
-			System.out.println("Properties readed successfully");
-
+			
 		} catch (FileNotFoundException notFoundException) {
 			LOGGER.error(notFoundException.getMessage());
 		} catch (IOException ioException) {
@@ -34,6 +32,12 @@ public class MyBatisConnectionFactory {
 		}
 	}
 
+    /**
+     * Method for getting newly created or existing @sqlSessionFactory
+     *
+     * @return sqlSessionFactory or null, if there was an errors until
+     * creating sqlSessionFactory
+     */
 	public static SqlSessionFactory getSqlSessionFactory() {
 		return sqlSessionFactory != null ? sqlSessionFactory : null;		
 	}
