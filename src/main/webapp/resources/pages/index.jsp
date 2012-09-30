@@ -1,0 +1,1 @@
+<% response.sendRedirect("/sh-manager/index.htm"); %>

@@ -8,6 +8,7 @@
 	<packaging>war</packaging>
 
 	<name>sh-manager</name>
+    <description>Web application for managing your smart house</description>
 	<url>http://maven.apache.org</url>
 
 	<developers>
@@ -24,34 +25,86 @@
 	<properties>
 		<m2repo.home>${user.home}/.m2</m2repo.home>
 		<sh.loglevel>INFO</sh.loglevel>
+        <!-- TODO: ${project.basedir} don't woks !!! -->
 		<sh.logdir>${project.basedir}/logs</sh.logdir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.0.5.RELEASE</spring.version>
-		<mybatis.generator.plugin.version>1.3.2</mybatis.generator.plugin.version>
 		<dao.target.dir>src/main/java</dao.target.dir>
 		<mybatis.generator.configurationFile>
 			src/main/resources/sh-manager/mybatis/config/generatorConfig.xml
 		</mybatis.generator.configurationFile>
-		<mysql.connector.version>5.1.9</mysql.connector.version>
-	</properties>
+		<!-- Java versions -->
+		<java.source.version>1.6</java.source.version>
+		<java.target.version>1.6</java.target.version>
+        <!-- Dependencies versions -->
+        <spring.version>3.0.6.RELEASE</spring.version>
+        <mybatis.version>3.0.6</mybatis.version>
+        <mybatis.ehcache.version>1.0.0-RC1</mybatis.ehcache.version>
+        <mybatis.spring.version>1.0.2</mybatis.spring.version>
+        <net.sf.ehcache>2.5.1</net.sf.ehcache>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <mybatis.generator.plugin.version>1.3.2</mybatis.generator.plugin.version>
+        <mysql.connector.version>5.1.9</mysql.connector.version>
+        <junit.version>4.8.2</junit.version>
+        <log4j.version>1.2.9</log4j.version>
+        <cglib.version>2.2.2</cglib.version>
+    </properties>
 
 	<dependencies>
+        <!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Logs -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.9	</version>
+			<version>${log4j.version}</version>
 		</dependency>
+        <!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -92,11 +145,33 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.connector.version}</version>
 		</dependency>
+        <!-- Mybatis dependencies -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.0.3</version>
+			<version>${mybatis.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>${mybatis.ehcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <type>pom</type>
+            <version>${net.sf.ehcache}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -125,8 +200,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
 				</configuration>
 			</plugin>
 
@@ -138,10 +213,13 @@
 					<execution>
 						<id>Generate MyBatis Artifacts</id>
 						<goals>
-							<goal>generate</goal>
+                            <!-- TODO: find out what goals should be to disable creating additional mapper files. for ex: Mapper.java.1 -->
+							<!--<goal>generate</goal>-->
 						</goals>
 						<configuration>
 							<overwrite>false</overwrite>
+							<!-- write progress messages to the build log -->
+							<verbose>false</verbose>
 						</configuration>
 					</execution>
 				</executions>
