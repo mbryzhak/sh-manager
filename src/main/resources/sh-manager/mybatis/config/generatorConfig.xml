@@ -5,6 +5,7 @@
 
 <generatorConfiguration>
 
+    <!-- TODO: replace custom m2repo.home variable to corresponding system variable -->
 	<classPathEntry
 		location="${m2repo.home}/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
 
@@ -48,10 +49,12 @@
 		 -->
 		<table tableName="Users" domainObjectName="User">
 			<generatedKey column="idUser" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR" />
+			<columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
 			<columnOverride property="userEmail" column="userEmail" />
 			<columnOverride property="userDateCreated" column="userDateCreated" />
-			<columnOverride property="userRole" column="userRole" />
+			<columnOverride property="userRole" column="userRole" javaType="com.master.common.type.UserRole" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.EnumAnnotatedTypeHandler<com.master.common.type.UserRole>"/>
 			<columnOverride property="userFirstName" column="userFirstName" />
 			<columnOverride property="userLastName" column="userLastName" />
 			<columnOverride property="userSex" column="userSex" />
@@ -59,14 +62,17 @@
 
 		<table tableName="UserCredentials" domainObjectName="UserCredentials">
 			<generatedKey column="idCredential" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="credentialUUID" column="credentialUUID" javaType="java.util.UUID" jdbcType="VARCHAR" />
+			<columnOverride property="credentialUUID" column="credentialUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
 			<columnOverride property="userPassword" column="userPassword" />
-			<columnOverride property="userId" column="Users_idUser" />
 		</table>
 		
 		<table tableName="Profiles" domainObjectName="Profile">
 			<generatedKey column="idProfile" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="profileUUID" column="profileUUID" javaType="java.util.UUID" jdbcType="VARCHAR" />
+            <columnOverride property="profileUUID" column="profileUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
+            <columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
 			<columnOverride property="profileName" column="profileName" />
 			<columnOverride property="electricityRate" column="electricityRate" />
 			<columnOverride property="waterRate" column="waterRate" />
@@ -75,17 +81,19 @@
 			<columnOverride property="temperatureRate" column="temperatureRate" />
 			<columnOverride property="fireProtectionRate" column="fireProtectionRate" />
 			<columnOverride property="stealProtectionRate" column="stealProtectionRate" />
-			<columnOverride property="userId" column="Users_idUser" />
 		</table>
 		
 		<table tableName="Houses" domainObjectName="House">
 			<generatedKey column="idHouse" sqlStatement="select last_insert_id() as id"/>
-			<columnOverride property="houseUUID" column="houseUUID" javaType="java.util.UUID" jdbcType="VARCHAR" />
+			<columnOverride property="houseUUID" column="houseUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
+            <columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
+            <columnOverride property="profileUUID" column="profileUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
+                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
 			<columnOverride property="houseName" column="houseName" />
 			<columnOverride property="houseAddress" column="houseAddress" />
 			<columnOverride property="houseType" column="houseType" />
-			<columnOverride property="userId" column="Users_idUser" />
-			<columnOverride property="profileId" column="Profiles_idProfile" />
 		</table>
 
 	</context>

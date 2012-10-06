@@ -14,7 +14,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:sh-manager/env/${dev.env}-manager.properties</value>
+                <value>classpath:sh-manager/env/sh-manager-${dev.env}.properties</value>
             </list>
         </property>
     </bean>

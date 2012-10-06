@@ -13,7 +13,17 @@
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="typeAliasesPackage" value="com.master.mybatisgenerated" />
+        <property name="typeHandlersPackage" value="com.master.mybatis.typehandler" />
         <property name="mapperLocations" value="classpath*:sh-manager/mybatis/sqlmap/*Mapper.xml" />
+        <property name="configurationProperties">
+            <props>
+                <prop key="mapUnderscoreToCamelCase">true</prop>
+                <prop key="aggressiveLazyLoading">false</prop>
+                <prop key="cacheEnabled">true</prop>
+                <prop key="useColumnLabel">true</prop>
+                <prop key="useGeneratedKeys">true</prop>
+            </props>
+        </property>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" />

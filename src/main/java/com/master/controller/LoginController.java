@@ -35,7 +35,7 @@ public class LoginController {
 
 	@RequestMapping(value = "index.htm", method = RequestMethod.GET)
 	public ModelAndView execute(Model model) {
-        model.addAttribute("user", userMapper.selectByUserUuid(UUID.fromString("810810c4-c4c6-4ff8-9b2b-4d9b84e886f0")));
+//        model.addAttribute("user", userMapper.selectByUserUuid(UUID.fromString("810810c4-c4c6-4ff8-9b2b-4d9b84e886f0")));
 		return new ModelAndView("hello");
 	}
 /*

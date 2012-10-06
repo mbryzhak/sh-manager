@@ -11,7 +11,11 @@ import org.apache.ibatis.type.JdbcType;
 
 public class UuidTypeHandler extends BaseTypeHandler {
 
-	@Override
+    public UuidTypeHandler(){
+        super();
+    }
+
+    @Override
 	public Object getNullableResult(ResultSet rs, String columnName)
 			throws SQLException, IllegalArgumentException {
 		return rs.getString(columnName) != "" ? UUID.fromString(rs.getString(columnName)) : null;
