@@ -53,8 +53,7 @@
                             typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
 			<columnOverride property="userEmail" column="userEmail" />
 			<columnOverride property="userDateCreated" column="userDateCreated" />
-			<columnOverride property="userRole" column="userRole" javaType="com.master.common.type.UserRole" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.EnumAnnotatedTypeHandler<com.master.common.type.UserRole>"/>
+			<columnOverride property="userRole" column="userRole" javaType="com.master.common.type.UserRole" jdbcType="VARCHAR" />
 			<columnOverride property="userFirstName" column="userFirstName" />
 			<columnOverride property="userLastName" column="userLastName" />
 			<columnOverride property="userSex" column="userSex" />

@@ -229,7 +229,7 @@
 						</goals>
 						<configuration>
 							<overwrite>true</overwrite>
-							write progress messages to the build log &ndash;&gt;
+							&lt;!&ndash;write progress messages to the build log&ndash;&gt;
 							<verbose>false</verbose>
 						</configuration>
 					</execution>
