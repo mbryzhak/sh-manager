@@ -1,4 +1,4 @@
-.container {
+.login-container {
     border: 1px solid #B2C5D4;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -17,27 +17,11 @@
     padding: 50px;
 }
 
-input.textField {
+input.text-field {
     width: 320px;
 }
 
-.textField {
-    padding: 3px 8px;
-    line-height: 1.38em;
-    color: #666666;
-    width: 100%;
-    border: 1px solid #91cfee;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.buttonsWrap {
+.buttons-wrap {
     float: right;
     margin-top: 15px;
 }
@@ -77,36 +61,10 @@ input.textField {
 }
 
 .button-no-style {
-    color: blue;
-    font-family: Helvetica, Arial, Sans-Serif;
-    font-size: 14px;
-    font-weight: normal;
-    text-decoration: none;
-    vertical-align: sub;
     padding: 7px 20px;
 }
 
-.button-no-style:active {
-    color: #00008b;
-}
-
-.textField {
-    padding: 3px 8px;
-    line-height: 1.38em;
-    color: #666666;
-    width: 100%;
-    border: 1px solid #91cfee;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.fieldRow {
+.field-row {
     margin-bottom: 10px;
     position: relative;
 }
@@ -114,19 +72,4 @@ input.textField {
 .hidden {
     display: none !important;
     visibility: hidden;
-}
-
-.loginHeader {
-    color: #333333;
-    font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
-    font-weight: normal;
-    padding-top: 40px;
-}
-
-.bottom-info {
-    color: #333333;
-    font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
-    font-weight: normal;
-    font-size: 12px;
-    padding-top: 5px;
 }

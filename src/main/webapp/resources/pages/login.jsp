@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<title>Login Page</title>
@@ -10,18 +9,18 @@
 <body>
     <div>
         <div>
-            <h2 class="loginHeader" align="center">Sing in to your Dashboard</h2>
+            <h2 class="header" align="center">Sign in to your Dashboard</h2>
         </div>
-        <div class="container">
+        <div class="login-container">
             <form id="loginForm">
                 <div>
-                    <div class="fieldRow">
-                        <input id="loginField" name="loginField" class="textField" type="text" placeholder="Email Address"><br>
+                    <div class="field-row">
+                        <input id="loginField" name="login-field" class="text-field" type="text" placeholder="Email Address"><br>
                     </div>
-                    <div class="fieldRow">
-                        <input id="passwordField" name="passwordField" class="textField" type="password" placeholder="Password"><br>
+                    <div class="field-row">
+                        <input id="passwordField" name="password-field" class="text-field" type="password" placeholder="Password"><br>
                     </div>
-                <span class="buttonsWrap">
+                <span class="buttons-wrap">
                     <a id="cancelBtn" href="#" class="button-no-style">Cancel</a>
                     <a id="loginBtn" href="#" class="button">Login</a>
                 </span>

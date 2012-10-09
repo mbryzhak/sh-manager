@@ -1,7 +1,43 @@
-.errorBlock {
-	color: #ff0000;
-	background-color: #ffEEEE;
-	border: 3px solid #ff0000;
-	padding: 8px;
-	margin: 16px;
+.text-field {
+    padding: 3px 8px;
+    line-height: 1.38em;
+    color: #666666;
+    width: 100%;
+    border: 1px solid #91cfee;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.button-no-style {
+    color: blue;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    vertical-align: sub;
+}
+
+.button-no-style:active {
+    color: #00008b;
+}
+
+.header {
+    color: #333333;
+    font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
+    font-weight: normal;
+    padding-top: 40px;
+}
+
+.bottom-info {
+    color: #333333;
+    font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    padding-top: 5px;
 }
