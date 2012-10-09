@@ -1,16 +1,16 @@
 package com.master.controller;
 
+import com.master.common.type.UserRole;
+import com.master.mybatisgenerated.User;
 import com.master.mybatisgenerated.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Controller
@@ -33,10 +33,35 @@ public class LoginController {
 
 	}*/
 
+
+    private com.master.mybatisgenerated.User createTestUser(){
+        UUID USER_UUID = UUID.randomUUID();
+        String USER_EMAIL = USER_UUID.toString().substring(0, 8);
+        Date USER_DATE_CREATED = new Date();
+        UserRole USER_ROLE = UserRole.MANAGER;
+        String USER_FIRST_NAME = "Vasia";
+        String USER_LAST_NAME = "Pupkin";
+        boolean USER_SEX = true;
+
+        com.master.mybatisgenerated.User user = new com.master.mybatisgenerated.User();
+        user.setUserUUID(USER_UUID);
+        user.setUserEmail(USER_EMAIL);
+        user.setUserDateCreated(USER_DATE_CREATED);
+        user.setUserRole(USER_ROLE);
+        user.setUserFirstName(USER_FIRST_NAME);
+        user.setUserLastName(USER_LAST_NAME);
+        user.setUserSex(USER_SEX);
+        return user;
+    }
+
 	@RequestMapping(value = "index.htm", method = RequestMethod.GET)
-	public ModelAndView execute(Model model) {
-//        model.addAttribute("user", userMapper.selectByUserUuid(UUID.fromString("810810c4-c4c6-4ff8-9b2b-4d9b84e886f0")));
-		return new ModelAndView("hello");
+	public ModelAndView execute(Model model) throws InterruptedException {
+//        User user = createTestUser();
+//        userMapper.insert(user);
+//        Thread.sleep(500);
+//
+//        model.addAttribute("user", userMapper.selectByUserUuid(user.getUserUUID()));
+		return new ModelAndView("login");
 	}
 /*
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)

@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-	
-	<!-- Standart out to console appender -->
-	<appender name="Stdout" class="org.apache.log4j.ConsoleAppender">
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
-		</layout>
-	</appender>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://jakarta.apache.org/log4j/ ">
 
-	<!-- Main file appender -->	
-	<appender name="StdoutFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${sh.logdir}/stdout.log" />
-		<param name="append" value="true" />
-		<param name="maxFileSize" value="20MB" />
-		<param name="encoding" value="UTF-8" />
-		<param name="maxBackupIndex" value="10" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
-		</layout>
-	</appender>
-	
-	<!-- Errors file appender -->
-	<appender name="ErrorsFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${sh.logdir}/errors.log" />
-		<param name="append" value="true" />
-		<param name="maxFileSize" value="20MB" />
-		<param name="encoding" value="UTF-8" />
-		<param name="maxBackupIndex" value="10" />
-		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
-		</layout>
-		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+    <!-- Standart out to console appender -->
+    <appender name="Stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Main file appender -->
+    <appender name="StdoutFile" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${sh.logdir}/stdout.log"/>
+        <param name="append" value="true"/>
+        <param name="maxFileSize" value="20MB"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="maxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Errors file appender -->
+    <appender name="ErrorsFile" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${sh.logdir}/errors.log"/>
+        <param name="append" value="true"/>
+        <param name="maxFileSize" value="20MB"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="maxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{MM/dd/yy HH:mm:ss:S}](%t) %-5p - %-26.26c{1} - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="ERROR"/>
         </filter>
-	</appender>
-	
-	<!-- Loggers -->
-	<logger name="com.master">
-		<level value="${sh.loglevel}" />
-	</logger>
-	
-	<!-- External libs -->
-	<logger name="org.springframework">
+    </appender>
+
+    <!-- Loggers -->
+    <logger name="com.master">
+        <level value="${sh.loglevel}"/>
+    </logger>
+
+    <!-- External libs -->
+    <logger name="org.springframework">
         <level value="WARN"/>
     </logger>
-    
+
     <logger name="org.apache.ibatis">
         <level value="ERROR"/>
     </logger>
-	
-	<!-- root logging configs -->
-	<root>
+
+    <!-- root logging configs -->
+    <root>
         <level value="${sh.loglevel}"/>
         <appender-ref ref="Stdout"/>
         <appender-ref ref="StdoutFile"/>

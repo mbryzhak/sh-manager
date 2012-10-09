@@ -204,6 +204,8 @@
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
+                    <stopKey/>
+                    <stopPort/>
                 </configuration>
             </plugin>
 
@@ -220,8 +222,8 @@
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
 				<version>${mybatis.generator.plugin.version}</version>
-				<!--<executions>
-					<execution>
+				<executions>
+					<!--<execution>
 						<id>Generate MyBatis Artifacts</id>
 						<goals>
                             &lt;!&ndash;TODO: find out what goals should be to disable creating additional mapper files. for ex: Mapper.java.1 &ndash;&gt;
@@ -232,8 +234,8 @@
 							&lt;!&ndash;write progress messages to the build log&ndash;&gt;
 							<verbose>false</verbose>
 						</configuration>
-					</execution>
-				</executions>-->
+					</execution>-->
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

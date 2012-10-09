@@ -1,0 +1,17 @@
+.container{
+    margin: 0 auto;
+    border: 2px solid #839bdf;
+    width: 420px;
+}
+
+#loginForm{
+    padding: 50px;
+}
+
+input.textField{
+    width: 320px;
+}
+
+input.button{
+    width: 70px;
+}
