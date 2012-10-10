@@ -1,4 +1,4 @@
 package com.master.controller;
 
-public class SingUpController {
+public class SignUpController {
 }

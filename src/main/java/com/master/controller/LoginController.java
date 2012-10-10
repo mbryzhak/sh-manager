@@ -54,7 +54,7 @@ public class LoginController {
         return user;
     }
 
-	@RequestMapping(value = "index.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "login.htm", method = RequestMethod.GET)
 	public ModelAndView execute(Model model) throws InterruptedException {
 //        User user = createTestUser();
 //        userMapper.insert(user);
