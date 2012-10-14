@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class PasswordHelperTest {
 
-    UUID randomUuid = UUID.randomUUID();;
+    UUID randomUuid = UUID.randomUUID();
     PasswordHelper passwordHelper = new PasswordHelper(randomUuid);
     final String simplePass = "HelloTitty";
     String encodedPass;
