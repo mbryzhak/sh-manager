@@ -5,6 +5,11 @@
         <%@include file="../css/login.css"%>
         <%@include file="../css/global.css"%>
     </style>
+    <script type="text/javascript">
+        <%@include file="../js/jquery-1.8.2.min.js"%>
+        <%@include file="../js/validator.js"%>
+        <%@include file="../js/login.js"%>
+    </script>
 </head>
 <body>
     <div>
@@ -21,7 +26,7 @@
                         <input id="passwordField" name="password-field" class="text-field" type="password" placeholder="Password"><br>
                     </div>
                 <span class="buttons-wrap">
-                    <a id="cancelBtn" href="#" class="button-no-style">Cancel</a>
+                    <a id="cancelBtn" href="/sh-manager" class="button-no-style">Cancel</a>
                     <a id="loginBtn" href="#" class="button">Login</a>
                 </span>
                 </div>

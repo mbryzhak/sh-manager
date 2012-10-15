@@ -107,4 +107,13 @@ public interface UserMapper {
     @Select("SELECT * FROM Users u WHERE u.userUUID = '${uuid}'")
     User selectByUserUuid(@Param("uuid") UUID uuid);
 
+    /**
+     * This method queue db for the user record by userEmail
+     * TODO: do select query until find first match
+     *
+     * @param email user email
+     * @return user instance
+     */
+    @Select("SELECT * FROM Users u WHERE u.userEmail = '${email}'")
+    User selectByEmail(@Param("email") String email);
 }
