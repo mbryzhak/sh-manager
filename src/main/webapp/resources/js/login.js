@@ -2,6 +2,20 @@ var buttonsListener = buttonsListener || {};
 
 (function($){
     buttonsListener = {
+        cleanUpFields: function(form){
+            $(form).find(':input').each(function(){
+                switch (this.type){
+                    case 'text':
+                    case 'password':
+                        $(this).val('');
+                        break;
+                }
+            });
+        },
+        cleanUpErrors: function(target){
+            $('.ui-state-error').empty();
+            $('.error').addClass('hidden');
+        },
         validate: function(){
             $('#cancelBtn').click(function(){
                 $.ajax({
@@ -17,16 +31,20 @@ var buttonsListener = buttonsListener || {};
             });
 
             $('#loginBtn').click(function(){
+                buttonsListener.cleanUpErrors();
                 if(isBlank('#loginField')){
-                    alert("loginField is required");
+                    $('.ui-state-error').append("Email is a required field<br>");
+                    $('.error').removeClass('hidden');
                 }
                 if(isBlank('#passwordField')){
-                    alert("passwordField is required");
+                    $('.ui-state-error').append("Password is a required field<br>");
+                    $('.error').removeClass('hidden');
                 }
             });
         },
         init: function(){
-            buttonsListener.validate();
+            buttonsListener.cleanUpFields("#loginForm");
+            buttonsListener.validate(); 
         }
     }
     $(function(){

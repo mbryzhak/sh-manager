@@ -1,15 +1,14 @@
 <html>
 <head>
 	<title>Login Page</title>
-    <style type="text/css">
-        <%@include file="../css/login.css"%>
-        <%@include file="../css/global.css"%>
-    </style>
-    <script type="text/javascript">
-        <%@include file="../js/jquery-1.8.2.min.js"%>
-        <%@include file="../js/validator.js"%>
-        <%@include file="../js/login.js"%>
-    </script>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/login.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/global.css">
+
+    <script type="text/javascript" src="resources/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="resources/js/validator.js"></script>
+    <script type="text/javascript" src="resources/js/login.js"></script>
+
 </head>
 <body>
     <div>
@@ -18,6 +17,9 @@
         </div>
         <div class="login-container">
             <form id="loginForm">
+                <div class="error hidden">
+                    <div class="ui-state-error"></div>
+                </div>
                 <div>
                     <div class="field-row">
                         <input id="loginField" name="login-field" class="text-field" type="text" placeholder="Email Address"><br>

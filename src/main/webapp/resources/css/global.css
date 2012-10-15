@@ -1,3 +1,7 @@
+body{
+    background-color: #fafafa;
+}
+
 .text-field {
     padding: 3px 8px;
     line-height: 1.38em;
@@ -46,6 +50,27 @@
     padding-top: 5px;
 }
 
-body{
-    background-color: #fafafa;
+.error {
+    background-color: #F99;
+    background-color: rgba(255, 153, 153, 0.6);
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #E70800;
+    padding: 0.2em 0;
+    margin: 0.5em 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.ui-widget {
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-size: 1em;
+}
+
+.ui-state-error {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 0.75em;
+    padding: 0.5em;
+    color: #CD0A0A;
 }

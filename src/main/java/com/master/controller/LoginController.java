@@ -14,13 +14,12 @@ import java.util.Date;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/sh-manager")
 public class LoginController {
 
     @Autowired
     private UserMapper userMapper;
 
-	@RequestMapping(value = "/home.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
 	public ModelAndView execute(Model model) throws InterruptedException {
 
 
