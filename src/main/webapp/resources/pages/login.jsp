@@ -13,7 +13,7 @@
 <body>
     <div>
         <div>
-            <h2 class="header" align="center">Sign in to your Dashboard</h2>
+            <h2 class="header-login" align="center">Sign in to your Dashboard</h2>
         </div>
         <div class="login-container">
             <form id="loginForm">

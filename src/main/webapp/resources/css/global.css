@@ -1,5 +1,28 @@
-body{
-    background-color: #fafafa;
+body {
+    background-image: url('../img/blue-texture.jpg');
+    background-color: #cccccc;
+}
+
+.transparent {
+    opacity: 0.5;
+    background: none repeat scroll 0 0 #ffffff;
+    color: #333333;
+}
+
+div#header {
+    padding: 25px;
+}
+
+.header-base-left{
+    padding-left: 100px;
+}
+
+a#header-sh-manager-link{
+    font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 32px;
+    color: #000000;
+    text-decoration: none;
 }
 
 .text-field {
@@ -18,7 +41,7 @@ body{
     box-sizing: border-box;
 }
 
-.text-field:focus{
+.text-field:focus {
     border: 1px solid #455cee;
 }
 
@@ -35,7 +58,7 @@ body{
     color: #00008b;
 }
 
-.header {
+.header-login {
     color: #333333;
     font-family: "Myriad Pro", Arial, Helvetica, Tahoma, sans-serif;
     font-weight: normal;
@@ -64,12 +87,12 @@ body{
 }
 
 .ui-widget {
-    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
     font-size: 1em;
 }
 
 .ui-state-error {
-    font-family: Verdana,Arial,sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 0.75em;
     padding: 0.5em;
     color: #CD0A0A;
