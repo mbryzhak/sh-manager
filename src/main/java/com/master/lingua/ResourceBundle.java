@@ -2,22 +2,33 @@ package com.master.lingua;
 
 import java.util.Locale;
 
-public class ResourceBundle {
+public class ResourceBundle
+{
 
     Locale locale;
     java.util.ResourceBundle rb;
 
-    public ResourceBundle(Locale locale){
-        this.locale = locale;
-        getMessages();
+    public ResourceBundle(Locale locale)
+    {
+        this.setLocation(locale);
     }
 
-    private void getMessages(){
-        String resourceName = "messages_" + locale.toString().toUpperCase() + ".properties";
-        rb = java.util.ResourceBundle.getBundle("classpath:sh-manager/lingua/" + resourceName);
+    public void setLocation(Locale location)
+    {
+        this.locale = location;
+
+        this.getLocalisationFileBundle();
     }
 
-    public String getString(String key){
-        return rb.getString(key);
+    private void getLocalisationFileBundle()
+    {
+        String resourceName = "messages_" + this.locale.toString().toUpperCase();
+
+        this.rb = java.util.ResourceBundle.getBundle("sh-manager.lingua." + resourceName,this.locale);
+    }
+
+    public String getString(String key)
+    {
+        return this.rb.getString(key);
     }
 }
