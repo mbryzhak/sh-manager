@@ -1,6 +1,7 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 <head>
-	<title>Login Page</title>
+	<title><spring:message code="sh.login.pageTitle" /> </title>
 
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
     <link rel="stylesheet" type="text/css" href="resources/css/global.css">
