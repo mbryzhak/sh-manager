@@ -1,11 +1,12 @@
 package com.master.helper;
 
+import com.master.support.BaseTestSupport;
 import org.junit.Test;
 import static junit.framework.TestCase.*;
 
 import java.util.UUID;
 
-public class PasswordHelperTest {
+public class PasswordHelperTest extends BaseTestSupport{
 
     UUID randomUuid = UUID.randomUUID();
     PasswordHelper passwordHelper = new PasswordHelper(randomUuid);

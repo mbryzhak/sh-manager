@@ -9,7 +9,7 @@ import org.junit.Test;
  * Time: 11:11 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UserMapperTest {
+public class ShMapperTest {
 /*
 
     @Ignore
@@ -26,7 +26,7 @@ public class UserMapperTest {
     public void testSelectByUserUuid() throws Exception {
 
         try {
-            UserMapper mapper = session.getMapper(UserMapper.class);
+            ShMapper mapper = session.getMapper(ShMapper.class);
             User user = mapper.selectByUserUuid(MybatisTestBase.USER_UUID);
             assertNotNull(user);
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class UserMapperTest {
     private void instertUser() throws Exception {
 
         try{
-            UserMapper mapper = session.getMapper(UserMapper.class);
+            ShMapper mapper = session.getMapper(ShMapper.class);
             mapper.insert(MybatisTestBase.createTestUser());
         } finally {
             session.close();
@@ -47,7 +47,7 @@ public class UserMapperTest {
     private void deleteUser() throws Exception {
 
         try {
-            UserMapper mapper = session.getMapper(UserMapper.class);
+            ShMapper mapper = session.getMapper(ShMapper.class);
             mapper.deleteByPrimaryKey(1);
         } finally {
 

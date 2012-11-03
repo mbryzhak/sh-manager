@@ -47,7 +47,7 @@
     </logger>
 
     <logger name="org.apache.ibatis">
-        <level value="ERROR"/>
+        <level value="INFO"/>
     </logger>
 
     <!-- root logging configs -->

@@ -5,9 +5,8 @@
 
 <generatorConfiguration>
 
-    <!-- TODO: replace custom m2repo.home variable to corresponding system variable -->
 	<classPathEntry
-		location="${m2repo.home}/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
+		location="${user.home}/.m2/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
 
 	<context id="sh_manager" targetRuntime="MyBatis3">
 

@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.UUID;
 
 import com.master.common.type.UserRole;
-import com.master.mybatisgenerated.User;
-import org.apache.ibatis.session.SqlSession;
 
 public class MybatisTestBase {
 	

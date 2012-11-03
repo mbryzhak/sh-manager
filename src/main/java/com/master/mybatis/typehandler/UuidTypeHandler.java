@@ -1,36 +1,33 @@
 package com.master.mybatis.typehandler;
 
+import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.TypeHandler;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 
-import org.apache.ibatis.type.BaseTypeHandler;
-import org.apache.ibatis.type.JdbcType;
+public class UuidTypeHandler implements TypeHandler<UUID> {
 
-public class UuidTypeHandler extends BaseTypeHandler {
-
-    public UuidTypeHandler(){
-        super();
+    @Override
+    public void setParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType) throws SQLException {
+        if(parameter == null) {
+            ps.setNull(i, jdbcType.TYPE_CODE);
+        }
+        ps.setString(i, parameter.toString());
     }
 
     @Override
-	public Object getNullableResult(ResultSet rs, String columnName)
-			throws SQLException, IllegalArgumentException {
-		return rs.getString(columnName) != "" ? UUID.fromString(rs.getString(columnName)) : null;
-	}
+    public UUID getResult(ResultSet rs, String columnName) throws SQLException {
+        return rs.getString(columnName) == null ? null : UUID.fromString(rs.getString(columnName));
+    }
 
-	@Override
-	public Object getNullableResult(CallableStatement cs, int columnNumber)
-			throws SQLException, IllegalArgumentException {
-		return cs.getString(columnNumber) != "" ? UUID.fromString(cs.getString(columnNumber)) : null;
-	}
-
-	@Override
-	public void setNonNullParameter(PreparedStatement ps, int columnNumber,
-			Object uuid, JdbcType jdbcType) throws SQLException {
-		ps.setString(columnNumber, uuid.toString());
-	}
+    @Override
+    public UUID getResult(CallableStatement cs, int columnIndex) throws SQLException {
+        return cs.getString(columnIndex) == null ? null : UUID.fromString(cs.getString(columnIndex));
+    }
 
 }
+
