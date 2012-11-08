@@ -1,6 +1,6 @@
 package com.master.controller;
 
-import com.master.mybatis.mapper.ShMapper;
+import com.master.mybatis.mapper.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ public class LoginController {
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
     @Autowired
-    private ShMapper shMapper;
+    private UserMapper userMapper;
 
 	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
 	public ModelAndView execute(Model model) throws InterruptedException {

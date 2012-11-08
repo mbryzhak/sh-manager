@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.master.mybatis.User">
+
+    <resultMap id="baseResult" type="com.master.mybatis.User">
+        <id column="idUser" jdbcType="INTEGER" property="iduser"/>
+        <result column="userUUID" jdbcType="VARCHAR" property="userUUID"
+                typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
+        <result column="userEmail" jdbcType="VARCHAR" property="userEmail"/>
+        <result column="userDateCreated" jdbcType="TIMESTAMP" property="userDateCreated"/>
+        <result column="userRole" jdbcType="VARCHAR" property="userRole"/>
+        <result column="userFirstName" jdbcType="VARCHAR" property="userFirstName"/>
+        <result column="userLastName" jdbcType="VARCHAR" property="userLastName"/>
+        <result column="userSex" jdbcType="BIT" property="userSex"/>
+    </resultMap>
+
+    <select id="getByUuid" parameterType="java.util.UUID" resultMap="baseResult">
+        SELECT * FROM sh_manager_db.Users u WHERE u.userUUID = '${uuid}'
+    </select>
+
+    <select id="getByEmail" parameterType="java.lang.String" resultMap="baseResult">
+        SELECT * FROM sh_manager_db.Users u WHERE u.userEmail = '${email}'
+    </select>
+
+    <insert id="createUser" parameterType="com.master.mybatis.User">
+        insert into users (userUUID, userEmail, userDateCreated, userRole, userFirstName, userLastName, userSex)
+        values (#{userUUID}, #{userEmail}, #{userDateCreated}, #{userRole}, #{userFirstName}, #{userLastName}, #{userSex})
+    </insert>
+
+</mapper>

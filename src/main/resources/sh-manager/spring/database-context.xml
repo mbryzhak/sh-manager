@@ -31,8 +31,8 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="shMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.master.mybatis.mapper.ShMapper" />
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatis.mapper.UserMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 

@@ -16,6 +16,94 @@ public class Profile {
     private Integer fireProtectionRate;
     private Integer stealProtectionRate;
 
+    public Integer getIdprofile() {
+        return idprofile;
+    }
+
+    public void setIdprofile(Integer idprofile) {
+        this.idprofile = idprofile;
+    }
+
+    public UUID getProfileUUID() {
+        return profileUUID;
+    }
+
+    public void setProfileUUID(UUID profileUUID) {
+        this.profileUUID = profileUUID;
+    }
+
+    public UUID getUserUUID() {
+        return userUUID;
+    }
+
+    public void setUserUUID(UUID userUUID) {
+        this.userUUID = userUUID;
+    }
+
+    public String getProfileName() {
+        return profileName;
+    }
+
+    public void setProfileName(String profileName) {
+        this.profileName = profileName;
+    }
+
+    public Integer getElectricityRate() {
+        return electricityRate;
+    }
+
+    public void setElectricityRate(Integer electricityRate) {
+        this.electricityRate = electricityRate;
+    }
+
+    public Integer getWaterRate() {
+        return waterRate;
+    }
+
+    public void setWaterRate(Integer waterRate) {
+        this.waterRate = waterRate;
+    }
+
+    public Integer getGasRate() {
+        return gasRate;
+    }
+
+    public void setGasRate(Integer gasRate) {
+        this.gasRate = gasRate;
+    }
+
+    public Integer getLightsRate() {
+        return lightsRate;
+    }
+
+    public void setLightsRate(Integer lightsRate) {
+        this.lightsRate = lightsRate;
+    }
+
+    public Integer getTemperatureRate() {
+        return temperatureRate;
+    }
+
+    public void setTemperatureRate(Integer temperatureRate) {
+        this.temperatureRate = temperatureRate;
+    }
+
+    public Integer getFireProtectionRate() {
+        return fireProtectionRate;
+    }
+
+    public void setFireProtectionRate(Integer fireProtectionRate) {
+        this.fireProtectionRate = fireProtectionRate;
+    }
+
+    public Integer getStealProtectionRate() {
+        return stealProtectionRate;
+    }
+
+    public void setStealProtectionRate(Integer stealProtectionRate) {
+        this.stealProtectionRate = stealProtectionRate;
+    }
+
     @Override
     public String toString(){
         final String semicolonPattern = "; ";
