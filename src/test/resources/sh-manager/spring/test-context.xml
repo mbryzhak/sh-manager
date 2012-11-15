@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:sh-manager/env/test-env.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${shmanager.db.driver}" />
+        <property name="url" value="${shmanager.db.url}" />
+        <property name="username" value="${shmanager.db.username}" />
+        <property name="password" value="${shmanager.db.password}" />
+    </bean>
+
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="com.master.mybatisgenerated" />
+        <property name="mapperLocations" value="classpath*:sh-manager/mybatis/sqlmap/*Mapper.xml" />
+        <property name="configurationProperties">
+            <props>
+                <prop key="mapUnderscoreToCamelCase">true</prop>
+                <prop key="aggressiveLazyLoading">false</prop>
+                <prop key="cacheEnabled">true</prop>
+                <prop key="useColumnLabel">true</prop>
+                <prop key="useGeneratedKeys">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatisgenerated.UserMapper" />
+        <property name="sqlSessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="profileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatisgenerated.ProfileMapper" />
+        <property name="sqlSessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="userCredentialsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatisgenerated.UserCredentialsMapper" />
+        <property name="sqlSessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="houseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatisgenerated.HouseMapper" />
+        <property name="sqlSessionFactory" ref="sessionFactory" />
+    </bean>
+</beans>

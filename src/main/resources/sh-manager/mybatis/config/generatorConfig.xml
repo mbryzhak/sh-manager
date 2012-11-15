@@ -5,9 +5,8 @@
 
 <generatorConfiguration>
 
-    <!-- TODO: replace custom m2repo.home variable to corresponding system variable -->
 	<classPathEntry
-		location="${m2repo.home}/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
+		location="${user.home}/.m2/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
 
 	<context id="sh_manager" targetRuntime="MyBatis3">
 
@@ -18,9 +17,7 @@
 				password="password">
 		</jdbcConnection>
 
-		<!-- 
-			Create the java model objects
-		 -->
+		<!-- Create the java model objects -->
 		<javaModelGenerator 
 				targetPackage="com.master.mybatisgenerated"
 				targetProject="src/main/java">
@@ -34,9 +31,7 @@
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
-		<!-- 
-			DAO
-		 -->
+		<!-- DAO -->
 		<javaClientGenerator 
 				targetPackage="com.master.mybatisgenerated"
 				targetProject="src/main/java" 
@@ -44,9 +39,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<!-- 
-			Tables to process
-		 -->
+		<!-- Tables to process -->
 		<table tableName="Users" domainObjectName="User">
 			<columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
                             typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>

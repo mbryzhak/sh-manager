@@ -99,21 +99,17 @@ public interface UserMapper {
 
     /**
      * This method queue db for the user record by userUuid
-     * TODO: do select query until find first match
      *
-     * @param uuid user uuid
-     * @return user instance
+     * @param userUUID user uuid
+     * @return User instance
      */
-    @Select("SELECT * FROM Users u WHERE u.userUUID = '${uuid}'")
-    User selectByUserUuid(@Param("uuid") UUID uuid);
+    User selectByUuid(UUID userUUID);
 
     /**
      * This method queue db for the user record by userEmail
-     * TODO: do select query until find first match
      *
      * @param email user email
-     * @return user instance
+     * @return User instance
      */
-    @Select("SELECT * FROM Users u WHERE u.userEmail = '${email}'")
-    User selectByEmail(@Param("email") String email);
+    User selectByEmail(String email);
 }

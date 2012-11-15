@@ -27,7 +27,7 @@ public class UuidTypeHandlerTest {
     String uuidString = "";
     int callCount = 0;
 
-    private void preInitRS() throws SQLException {
+/*    private void preInitRS() throws SQLException {
         context.checking(new Expectations(){
             {
                 exactly(callCount).of(mockedResultSet).getString(dummyColumnName); will(returnValue(uuidString));
@@ -103,5 +103,5 @@ public class UuidTypeHandlerTest {
         preInitCS();
 
         assertNull(typeHandler.getNullableResult(mockedCallableStatement, dummyColumnNumber));
-    }
+    }*/
 }

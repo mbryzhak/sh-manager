@@ -1,58 +1,34 @@
 package com.master.mybatis.mapper;
 
+import com.master.mybatis.MybatisTestBase;
+import com.master.mybatisgenerated.User;
+import com.master.mybatisgenerated.UserMapper;
+import com.master.support.BaseTestSupprot;
 import org.junit.Test;
+import static junit.framework.TestCase.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-/**
- * Created with IntelliJ IDEA.
- * User: mbryzhak
- * Date: 10/2/12
- * Time: 11:11 PM
- * To change this template use File | Settings | File Templates.
- */
-public class UserMapperTest {
-/*
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"/sh-manager/spring/test-context.xml"})
+public class UserMapperTest extends BaseTestSupprot {
 
-    @Ignore
+    @Autowired
+    private UserMapper userMapper;
+
     @Test
-    public void testInsert() {
-        try {
-            instertUser();
-        } catch (Exception e) {
-            fail(e.getMessage());
-        }
+    public void testCreateUser(){
+        User user = MybatisTestBase.createTestUser();
+        userMapper.insert(user);
     }
 
     @Test
-    public void testSelectByUserUuid() throws Exception {
-
-        try {
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            User user = mapper.selectByUserUuid(MybatisTestBase.USER_UUID);
-            assertNotNull(user);
-        } catch (Exception e) {
-            fail(e.getMessage());
-        }
+    public void testGetByEmail(){
+        User user = userMapper.selectByPrimaryKey(3);
+        User user1 = userMapper.selectByEmail(user.getUserEmail());
+        assertNotNull(user1.getUserUUID());
     }
-
-    private void instertUser() throws Exception {
-
-        try{
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            mapper.insert(MybatisTestBase.createTestUser());
-        } finally {
-            session.close();
-        }
-    }
-
-    private void deleteUser() throws Exception {
-
-        try {
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            mapper.deleteByPrimaryKey(1);
-        } finally {
-
-        }
-    }
-*/
 
 }
