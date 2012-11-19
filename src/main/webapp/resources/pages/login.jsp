@@ -1,4 +1,4 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <html>
 <head>
 	<title>Login Page</title>
@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    <%@include file="common/header.jsp"%>
     <div>
         <div>
             <h2 class="header-login" align="center">Sign in to your Dashboard</h2>

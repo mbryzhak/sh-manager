@@ -14,7 +14,12 @@ div#header {
 }
 
 .header-base-left{
-    padding-left: 100px;
+    padding-left: 10%;
+    padding-right: 50%;
+}
+
+.header-base-right{
+    padding-left: 85%;
 }
 
 a#header-sh-manager-link{
@@ -96,4 +101,16 @@ a#header-sh-manager-link{
     font-size: 0.75em;
     padding: 0.5em;
     color: #CD0A0A;
+}
+
+#register-new-link{
+
+}
+
+#login-link{
+
+}
+
+#logout-link{
+
 }
