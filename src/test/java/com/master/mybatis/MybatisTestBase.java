@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.UUID;
 
 import com.master.common.type.UserRole;
+import com.master.helper.PasswordHelper;
 import com.master.mybatisgenerated.House;
 import com.master.mybatisgenerated.User;
+import com.master.mybatisgenerated.UserCredentials;
 import com.master.support.BaseTestSupprot;
 import org.apache.ibatis.session.SqlSession;
 
@@ -25,5 +27,12 @@ public class MybatisTestBase {
         user.setUserSex(true);
 		return user;
 	}
+
+    public static UserCredentials createTestCredentials(){
+        UserCredentials credentials = new UserCredentials();
+        credentials.setCredentialUUID(USER_UUID);
+        credentials.setUserPassword(new PasswordHelper(USER_UUID).encodePassword("test_pass"));
+        return credentials;
+    }
 
 }

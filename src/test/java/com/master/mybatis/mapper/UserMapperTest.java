@@ -26,7 +26,7 @@ public class UserMapperTest extends BaseTestSupprot {
 
     @Test
     public void testGetByEmail(){
-        User user = userMapper.selectByPrimaryKey(3);
+        User user = userMapper.selectByPrimaryKey(1);
         User user1 = userMapper.selectByEmail(user.getUserEmail());
         assertNotNull(user1.getUserUUID());
     }
