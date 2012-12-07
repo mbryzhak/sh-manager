@@ -23,6 +23,7 @@
                 <prop key="useGeneratedKeys">true</prop>
             </props>
         </property>
+        <property name="typeHandlersPackage" value="com.master.mybatis.typehandler" />
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" />

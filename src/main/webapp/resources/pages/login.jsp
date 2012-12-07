@@ -1,5 +1,3 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 	<title>Login Page</title>
@@ -19,7 +17,7 @@
             <h2 class="header-login" align="center">Sign in to your Dashboard</h2>
         </div>
         <div class="login-container">
-            <form id="loginForm" action="/login.htm" method="post">
+            <form id="loginForm" action="/login/go" method="post">
                 <div class="error hidden">
                     <div class="ui-state-error"></div>
                 </div>

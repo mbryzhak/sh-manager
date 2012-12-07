@@ -3,6 +3,8 @@ package com.master.mybatisgenerated;
 import com.master.mybatisgenerated.UserCredentials;
 import com.master.mybatisgenerated.UserCredentialsExample;
 import java.util.List;
+import java.util.UUID;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserCredentialsMapper {
@@ -93,4 +95,12 @@ public interface UserCredentialsMapper {
      * @mbggenerated Sun Oct 07 02:27:37 EEST 2012
      */
     int updateByPrimaryKey(UserCredentials record);
+
+    /**
+     * Queue db to get credentials by user uuid
+     *
+     * @param uuid
+     * @return UserCredentials
+     */
+    UserCredentials selectByUuid(UUID uuid);
 }
