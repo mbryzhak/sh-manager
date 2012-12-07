@@ -15,9 +15,8 @@ public class UserCredentialsMapperTest {
     @Autowired
     private UserCredentialsMapper userCredentialsMapper;
 
-    @Ignore
     @Test
-    public void testUserCredentials(){
+    public void testCreateUserCredentials(){
 
     }
 

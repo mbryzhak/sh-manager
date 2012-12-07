@@ -3,9 +3,9 @@
     <div class="header-base-left">
         <a id="header-sh-manager-link" href="/sh-manager">Smart House Manager</a>
     </div>
-    <div class="header-base-right">
-        <%-- TODO: hardcoded value --%>
-        <%--<c:set var="isOwnerLogged" value="${true}"></c:set>--%>
+    <%--<div class="header-base-right">
+        &lt;%&ndash; TODO: hardcoded value &ndash;%&gt;
+        &lt;%&ndash;<c:set var="isOwnerLogged" value="${true}"></c:set>&ndash;%&gt;
         <c:if test="true">
             <span>
                 <a id="register-new-link" href="#">Register</a>
@@ -17,5 +17,5 @@
                 <a id="logout-link" href="#">Logout</a>
             </span>
         </c:if>
-    </div>
+    </div>--%>
 </div>

@@ -9,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -22,10 +25,29 @@ public class LoginController {
     @Autowired
     private UserMapper userMapper;
 
-	@RequestMapping(value = "/login.htm", method = RequestMethod.GET)
-	public ModelAndView execute(Model model) throws InterruptedException {
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public ModelAndView execute(Model model) throws InterruptedException {
         LOGGER.info("GET /login.htm");
 
-		return new ModelAndView("login");
-	}
+        String dateNow = (new Date()).toString();
+
+        model.addAttribute("dateNow", dateNow);
+
+        return new ModelAndView("login");
+    }
+
+
+    @RequestMapping(value = "/sh-manager/login.htm", method = RequestMethod.POST)
+    public ModelAndView login(@RequestParam("login") String login,
+                              @RequestParam("password") String password, Model model) throws InterruptedException {
+        LOGGER.info(String.format("Attempting to log in with user name '%s' and password '%s'", login, password));
+
+        String success = "false";
+        if(login != null)
+            success = "true";
+
+        model.addAttribute("success", success);
+
+        return new ModelAndView("login");
+    }
 }
