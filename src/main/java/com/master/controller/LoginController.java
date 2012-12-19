@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.UUID;
 
 @Controller
-@RequestMapping(value = "/sh-manager")
 public class LoginController {
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
@@ -26,29 +25,22 @@ public class LoginController {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model) throws InterruptedException {
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public ModelAndView execute(Model model) throws InterruptedException {
         LOGGER.info("GET /login.htm");
 
         String dateNow = (new Date()).toString();
 
         model.addAttribute("dateNow", dateNow);
 
-        return "login";
+        return new ModelAndView("login");
     }
 
 
-    @RequestMapping(value = "/login/go", method = RequestMethod.POST)
-    public String login(@RequestParam("login") String login,
-                              @RequestParam("password") String password, Model model) throws InterruptedException {
-        LOGGER.info(String.format("Attempting to log in with user name '%s' and password '%s'", login, password));
+    @RequestMapping(value = "/login.htm", method = RequestMethod.POST)
+    public ModelAndView login(@RequestParam("requestJSON") String requestJSON, Model model) throws InterruptedException {
+        LOGGER.info("Attempting to log in\n\t" + requestJSON);
 
-        String success = "false";
-        if(login != null)
-            success = "true";
-
-        model.addAttribute("success", success);
-
-        return "login";
+        return new ModelAndView("home");
     }
 }

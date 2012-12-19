@@ -34,7 +34,7 @@ input.text-field {
     background: -moz-linear-gradient(top, #c4c4c4, #a8a8a8);
     background: -ms-linear-gradient(top, #c4c4c4, #a8a8a8);
     background: -o-linear-gradient(top, #c4c4c4, #a8a8a8);
-    padding: 7px 20px;
+    padding: 5px 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;

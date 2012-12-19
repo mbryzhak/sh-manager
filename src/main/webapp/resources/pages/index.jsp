@@ -1,7 +1,8 @@
+<%@include file="common/pageIncludes.jsp"%>
 <html>
     <head>
         <title>SH_MANAGER</title>
-        <link rel="stylesheet" type="text/css" href="resources/css/global.css">
+        <%@include file="common/headIncludes.jsp"%>
     </head>
     <body>
         <%@include file="common/header.jsp"%>

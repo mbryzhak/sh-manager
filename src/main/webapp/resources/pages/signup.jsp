@@ -1,3 +1,4 @@
+<%@include file="common/pageIncludes.jsp"%>
 <html>
     <head>
 
