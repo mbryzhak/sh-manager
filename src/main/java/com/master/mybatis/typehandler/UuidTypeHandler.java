@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.MappedTypes;
 import org.apache.ibatis.type.TypeHandler;
 
 /**
@@ -16,6 +17,7 @@ import org.apache.ibatis.type.TypeHandler;
  *
  *  @author mbryzhak
  */
+@MappedTypes(value = UUID.class)
 public class UuidTypeHandler implements TypeHandler<UUID> {
 
     @Override

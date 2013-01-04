@@ -11,7 +11,7 @@
 
     <!-- Formatting url address. 'prefix' and 'suffix' will be disappeared in url -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/resources/pages/" />
+        <property name="prefix" value="resources/pages/" />
         <property name="suffix" value=".jsp" />
     </bean>
 

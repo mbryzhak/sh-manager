@@ -43,11 +43,11 @@
 
     <!-- External libs -->
     <logger name="org.springframework">
-        <level value="WARN"/>
+        <level value="INFO"/>
     </logger>
 
     <logger name="org.apache.ibatis">
-        <level value="ERROR"/>
+        <level value="WARN"/>
     </logger>
 
     <!-- root logging configs -->

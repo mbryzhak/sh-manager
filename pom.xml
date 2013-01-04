@@ -35,9 +35,7 @@
         <!-- Dependencies versions -->
         <spring.version>3.0.6.RELEASE</spring.version>
         <mybatis.version>3.0.6</mybatis.version>
-        <mybatis.ehcache.version>1.0.0-RC1</mybatis.ehcache.version>
         <mybatis.spring.version>1.0.2</mybatis.spring.version>
-        <net.sf.ehcache>2.5.1</net.sf.ehcache>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <mybatis.generator.plugin.version>1.3.2</mybatis.generator.plugin.version>
         <mysql.connector.version>5.1.9</mysql.connector.version>
@@ -160,20 +158,9 @@
 			<version>${mybatis.version}</version>
 		</dependency>
         <dependency>
-            <groupId>org.mybatis.caches</groupId>
-            <artifactId>mybatis-ehcache</artifactId>
-            <version>${mybatis.ehcache.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis.spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <type>pom</type>
-            <version>${net.sf.ehcache}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -218,6 +205,10 @@
                         <systemProperty>
                             <name>sh.logdir</name>
                             <value>${basedir}</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>dev.env</name>
+                            <value>test</value>
                         </systemProperty>
                     </systemProperties>
                 </configuration>

@@ -45,7 +45,7 @@ public class PasswordHelper {
     }
 
     public String encodePassword(String password) throws IllegalArgumentException{
-        if(password == null || password == ""){
+        if(password == null || password.equals("")){
             throw new IllegalArgumentException(password);
         } else{
             return hashPassword(password, userUuid);
@@ -53,12 +53,12 @@ public class PasswordHelper {
     }
 
     public boolean isEquals(String expected, String actual){
-        if (expected == null || expected == ""){
+        if (expected == null || expected.equals("")){
             throw new IllegalArgumentException(expected);
-        } else if (actual == null || actual == ""){
+        } else if (actual == null || actual.equals("")){
             throw new IllegalArgumentException(actual);
         } else {
-            return expected.equals(hashPassword(actual, userUuid)) ? true : false;
+            return expected.equals(hashPassword(actual, userUuid));
         }
     }
 }
