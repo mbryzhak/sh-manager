@@ -3,9 +3,9 @@
 <head>
 	<title>Login Page</title>
 
+    <%@include file="common/headIncludes.jsp"%>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
     <script type="text/javascript" src="resources/js/login.js"></script>
-    <%@include file="common/headIncludes.jsp"%>
 
 </head>
 <body>
@@ -15,7 +15,7 @@
             <h2 class="header-login" align="center">Sign in to your Dashboard</h2>
         </div>
         <div class="login-container">
-            <div id="loginForm" action="/sh-manager/do_login" method="post">
+            <div id="loginForm">
                 <div class="error hidden">
                     <div class="ui-state-error"></div>
                 </div>

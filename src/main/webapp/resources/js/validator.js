@@ -1,17 +1,21 @@
-var Validator = Validator || {}
+var Validator = Validator || {};
 
-Validator.isBlank = function (target) {
-    if($(target).val() == ""){
-        return true;
+(function($){
+    Validator = {
+        isBlank: function (target) {
+            if($(target).val() == ""){
+                return true;
+            }
+        },
+
+        appendError: function (message) {
+            $('.ui-state-error').append(message + "<br>");
+            $('.error').removeClass('hidden');
+        },
+
+        clearErrors: function () {
+            $('.ui-state-error').empty();
+            $('.error').addClass('hidden');
+        }
     }
-};
-
-Validator.appendError = function (message) {
-    $('.ui-state-error').append(message + "<br>");
-    $('.error').removeClass('hidden');
-};
-
-Validator.clearErrors = function () {
-    $('.ui-state-error').empty();
-    $('.error').addClass('hidden');
-};
+})($)
