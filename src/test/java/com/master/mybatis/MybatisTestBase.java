@@ -28,11 +28,11 @@ public class MybatisTestBase {
         return user;
     }
 
-    public static UserCredentials createTestCredentials() {
+    public static UserCredentials createTestCredentials(User user) {
         UserCredentials credentials = new UserCredentials();
-        credentials.setCredentialUUID(USER_UUID);
+        credentials.setCredentialUUID(user.getUserUUID());
         credentials.setUserPassword(new PasswordHelper(
-                USER_UUID).encodePassword(USER_UUID.toString().substring(0, 8)));
+                user.getUserUUID()).encodePassword(user.getUserUUID().toString().substring(0, 8)));
         return credentials;
     }
 

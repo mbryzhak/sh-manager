@@ -23,14 +23,10 @@ var LoginController = LoginController || {};
                     $.ajax({
                         url: "/sh-manager/login/go.html;",
                         type: "POST",
-                        data: {requestJSON : JSON.stringify(LoginController.serializeLoginForm())},
-                        success: function(data){
-                            console.log("Success");
-                        },
-                        error: function(){
-                            console.log("Error logging in");
-                        },
-                        dataType: 'json'
+                        data: {requestJson : JSON.stringify(LoginController.serializeLoginForm())},
+                        success: function(responce){
+                            $('body').html(responce);
+                        }
                     });
                 }
             });

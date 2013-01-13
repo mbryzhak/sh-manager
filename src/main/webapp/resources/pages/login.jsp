@@ -39,5 +39,8 @@
             <h5><c:out value="${success}"></c:out></h5>
         </div>
     </div>
+    <c:if test="${message != null}">
+        <script>Validator.appendError("${message}");</script>
+    </c:if>
 </body>
 </html>

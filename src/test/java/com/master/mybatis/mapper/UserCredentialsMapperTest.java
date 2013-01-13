@@ -26,8 +26,7 @@ public class UserCredentialsMapperTest {
     @Test
     public void testCreateUserCredentials(){
         User user = MybatisTestBase.createTestUser();
-        UserCredentials credentials = MybatisTestBase.createTestCredentials();
-        credentials.setCredentialUUID(user.getUserUUID());
+        UserCredentials credentials = MybatisTestBase.createTestCredentials(user);
 
         userMapper.insert(user);
         userCredentialsMapper.insert(credentials);
