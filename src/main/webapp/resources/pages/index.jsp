@@ -6,8 +6,15 @@
     </head>
     <body>
         <%@include file="common/header.jsp"%>
-        <h2 align="center">This is home page</h2>
-        <h5 align="center">Not implemented yet</h5>
-        <h1 align="center"> Please try to <a href="/sh-manager/login.html">login</a></h1>
+        <div class="parentHorizontal">
+            <div class="left">
+                <img src="resources/img/success.jpeg" />
+            </div>
+            <div class="right">
+                <h3 align="center">This is home page</h3>
+                <h6 align="center">Not implemented yet</h6>
+                <h2 align="center"> Please try to <a href="/sh-manager/login.html">login</a></h2>
+            </div>
+        </div>
     </body>
 </html>

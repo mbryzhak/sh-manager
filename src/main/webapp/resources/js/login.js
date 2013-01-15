@@ -8,13 +8,7 @@ var LoginController = LoginController || {};
                     url: "/sh-manager/",
                     success: function(data){
                         $('body').html(data);
-    //                alert("Load was performed");
                     }
-    //        }).done(function ( data ) {
-    //                if( console && console.log ) {
-    //                    console.log("Redirect to main");
-    //                }
-    //            });
                 });
             });
             $('#loginBtn').click(function(){

@@ -14,6 +14,7 @@ body {
 
 div#header {
     padding: 25px;
+    margin-bottom: 15px;
 }
 
 .header-base-left{
@@ -116,4 +117,18 @@ a#header-sh-manager-link{
 
 #logout-link{
 
+}
+
+div.parentHorizontal{
+    display: block;
+}
+
+div.left{
+    float: left;
+    width: 50%;
+}
+
+div.right{
+    float: right;
+    width: 50%;
 }
