@@ -15,32 +15,36 @@
             <h2 class="header-login" align="center">Sign in to your Dashboard</h2>
         </div>
         <div class="login-container">
-            <div id="loginForm">
+            <form id="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
                 <div class="error hidden">
                     <div class="ui-state-error"></div>
                 </div>
                 <div>
                     <div class="field-row">
-                        <input id="loginField" name="login" class="text-field" type="text" placeholder="Email Address"><br>
+                        <input id="loginField" name="j_username" class="text-field" type="text" placeholder="Email Address"><br>
                     </div>
                     <div class="field-row">
-                        <input id="passwordField" name="password" class="text-field" type="password" placeholder="Password"><br>
+                        <input id="passwordField" name="j_password" class="text-field" type="password" placeholder="Password"><br>
                     </div>
                 <span class="buttons-wrap">
-                    <a id="cancelBtn" href="#" class="button-no-style">Cancel</a>
-                    <a id="loginBtn" href="#" class="button">Login</a>
+                    <a id="cancelBtn" class="button-no-style" href="/sh-manager/">Cancel</a>
+                    <input id="loginBtn" class="button" type="submit" value="Login" />
                 </span>
                 </div>
-            </div>
+            </form>
         </div>
         <div align="center">
             <h5 class="bottom-info">You should login to manage your properties</h5><br>
-            <h5><c:out value="${dateNow}"></c:out></h5><br>
-            <h5><c:out value="${success}"></c:out></h5>
         </div>
     </div>
     <c:if test="${message != null}">
         <script>Validator.appendError("${message}");</script>
     </c:if>
+    <%--<c:if test="${not empty error}">
+        <div class="errorblock">
+            Your login attempt was not successful, try again.<br /> Caused :
+                ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+        </div>
+    </c:if>--%>
 </body>
 </html>

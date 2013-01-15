@@ -4,35 +4,22 @@ var LoginController = LoginController || {};
     LoginController = {
         initActions: function(){
             $('#cancelBtn').click(function(){
-                $.ajax({
-                    url: "/sh-manager/",
-                    success: function(data){
-                        $('body').html(data);
-                    }
-                });
+                GlobalAction.clearAllFields();
+                Validator.clearErrors();
             });
             $('#loginBtn').click(function(){
                 Validator.clearErrors();
-                if(LoginController.validate()){
-                    $.ajax({
-                        url: "/sh-manager/login/go.html;",
-                        type: "POST",
-                        data: {requestJson : JSON.stringify(LoginController.serializeLoginForm())},
-                        success: function(responce){
-                            $('body').html(responce);
-                        }
-                    });
-                }
+                LoginController.validate();
             });
         },
-
-        serializeLoginForm: function(){
-            var dataObj = {
-                login: GlobalAction.valueAt('#loginField'),
-                password: GlobalAction.valueAt('#passwordField')
-            }
-            return dataObj;
-        },
+//
+//        serializeLoginForm: function(){
+//            var dataObj = {
+//                login: GlobalAction.valueAt('#loginField'),
+//                password: GlobalAction.valueAt('#passwordField')
+//            }
+//            return dataObj;
+//        },
 
         validate: function(){
             var isValid = true;

@@ -6,14 +6,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
+
 @Controller
 public class HomeController {
 
     private static final Logger LOGGER = Logger.getLogger(HomeController.class);
 
-    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
-    public String viewHomeForm(ModelMap model){
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String viewHomeForm(ModelMap model, Principal principal){
         LOGGER.debug("Requesting /home.html page");
+        model.addAttribute("login", principal.getName());
         return "home";
     }
 }

@@ -5,13 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/security
-                           http://www.springframework.org/schema/security/spring-security.xsd">
+                           http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <security:http use-expressions="true">
-        <security:intercept-url pattern="/index.html" access="permitAll" />
-        <security:intercept-url pattern="/login.html" access="permitAll" />
-        <security:intercept-url pattern="/home.html" access="ADMIN" />
-        <security:form-login login-page="/login.html" default-target-url="/home.html"
+        <security:http use-expressions="true" auto-config="true">
+        <security:intercept-url pattern="/home*" access="hasRole('ROLE_USER')" />
+        <security:form-login login-page="/login" default-target-url="/home"
                 authentication-failure-url="/loginfailed" />
         <security:logout logout-success-url="/logout" />
     </security:http>
@@ -19,7 +17,7 @@
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
-                <security:user name="admin" password="pass" authorities="ADMIN" />
+                <security:user name="user" password="pass" authorities="ROLE_USER" />
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>

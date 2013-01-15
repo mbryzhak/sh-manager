@@ -8,7 +8,7 @@
         <%@include file="common/header.jsp"%>
         <div class="parentHorizontal">
             <div class="left">
-                <img src="resources/img/success.jpeg" />
+                <img src="resources/img/success.jpg" />
             </div>
             <div class="right">
                 <h3 align="center">This is home page</h3>

@@ -29,34 +29,58 @@ public class LoginController {
     @Autowired
     private UserCredentialsMapper userCredentialsMapper;
 
-    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
-    public String viewLoginForm(ModelMap model) {
-        LOGGER.debug("Requesting /login.html page");
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public String viewLoginForm(ModelMap model) {
+//        LOGGER.debug("Requesting /login.html page");
+//        model.addAttribute("dateNow", (new Date()).toString());
+//        return "login";
+//    }
+//
+//    @RequestMapping(value = "/login/go", method = RequestMethod.POST)
+//    public String processLoginForm(@RequestParam("requestJson") String json, ModelMap model) {
+//        LOGGER.debug("Attempting to log in as:\t" + json);
+//        LoginForm form = JsonHelper.get(json, LoginForm.class);
+//        User user = userMapper.selectByEmail(form.getLogin());
+//        if(user == null){
+//            model.addAttribute("message", "Wrong user email or password");
+//            return "login";
+//        }
+//        UserCredentials credentials = userCredentialsMapper.selectByUuid(user.getUserUUID());
+//        if(credentials == null){
+//            model.addAttribute("message", "Wrong user email or password");
+//            return "login";
+//        }
+//        PasswordHelper passwordHelper = new PasswordHelper(user.getUserUUID());
+//        if(!credentials.getUserPassword().equals(passwordHelper.encodePassword(form.getPassword()))){
+//            model.addAttribute("message", "Wrong user email or password");
+//            return "login";
+//        }
+//        model.addAttribute("login", form.getLogin());
+//        model.addAttribute("password", form.getPassword());
+//        return "home";
+//    }
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String welcome(ModelMap model){
+//        return "index";
+//    }
+
+    @RequestMapping(value="/login", method = RequestMethod.GET)
+    public String login(ModelMap model) {
         model.addAttribute("dateNow", (new Date()).toString());
         return "login";
     }
 
-    @RequestMapping(value = "/login/go.html", method = RequestMethod.POST)
-    public String processLoginForm(@RequestParam("requestJson") String json, ModelMap model) {
-        LOGGER.debug("Attempting to log in as:\t" + json);
-        LoginForm form = JsonHelper.get(json, LoginForm.class);
-        User user = userMapper.selectByEmail(form.getLogin());
-        if(user == null){
-            model.addAttribute("message", "Wrong user email or password");
-            return "login";
-        }
-        UserCredentials credentials = userCredentialsMapper.selectByUuid(user.getUserUUID());
-        if(credentials == null){
-            model.addAttribute("message", "Wrong user email or password");
-            return "login";
-        }
-        PasswordHelper passwordHelper = new PasswordHelper(user.getUserUUID());
-        if(!credentials.getUserPassword().equals(passwordHelper.encodePassword(form.getPassword()))){
-            model.addAttribute("message", "Wrong user email or password");
-            return "login";
-        }
-        model.addAttribute("login", form.getLogin());
-        model.addAttribute("password", form.getPassword());
-        return "home";
+    @RequestMapping(value="/loginfailed", method = RequestMethod.GET)
+    public String loginerror(ModelMap model) {
+
+        model.addAttribute("message", "Wrong user email or password");
+        return "login";
+    }
+
+    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    public String logout(ModelMap model) {
+
+        model.addAttribute("dateNow", (new Date()).toString());
+        return "login";
     }
 }
