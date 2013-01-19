@@ -13,7 +13,7 @@
             <div class="right">
                 <h3 align="center">This is home page</h3>
                 <h6 align="center">Not implemented yet</h6>
-                <h2 align="center"> Please try to <a href="/sh-manager/login.html">login</a></h2>
+                <h2 align="center"> Please try to <a href="/sh-manager/login?fail=false">login</a></h2>
             </div>
         </div>
     </body>

@@ -15,7 +15,7 @@
             <h2 class="header-login" align="center">Sign in to your Dashboard</h2>
         </div>
         <div class="login-container">
-            <form id="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
+            <form id="loginForm" action="<c:url value='j_spring_security_check' />" method="POST" onsubmit="return LoginController.validate()">
                 <div class="error hidden">
                     <div class="ui-state-error"></div>
                 </div>

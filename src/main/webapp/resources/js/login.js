@@ -9,7 +9,7 @@ var LoginController = LoginController || {};
             });
             $('#loginBtn').click(function(){
                 Validator.clearErrors();
-                LoginController.validate();
+//                LoginController.validate();
             });
         },
 //

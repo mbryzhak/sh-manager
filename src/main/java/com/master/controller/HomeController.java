@@ -15,7 +15,7 @@ public class HomeController {
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String viewHomeForm(ModelMap model, Principal principal){
-        LOGGER.debug("Requesting /home.html page");
+        LOGGER.debug("GET: /home");
         model.addAttribute("login", principal.getName());
         return "home";
     }

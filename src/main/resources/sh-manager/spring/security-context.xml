@@ -10,8 +10,8 @@
         <security:http use-expressions="true" auto-config="true">
         <security:intercept-url pattern="/home*" access="hasRole('ROLE_USER')" />
         <security:form-login login-page="/login" default-target-url="/home"
-                authentication-failure-url="/loginfailed" />
-        <security:logout logout-success-url="/logout" />
+                authentication-failure-url="/login?fail=true" />
+        <security:logout logout-success-url="/" />
     </security:http>
 
     <security:authentication-manager>
