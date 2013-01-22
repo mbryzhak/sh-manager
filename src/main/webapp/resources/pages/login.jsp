@@ -28,7 +28,7 @@
                     </div>
                 <span class="buttons-wrap">
                     <a id="cancelBtn" class="button-no-style" href="/sh-manager/">Cancel</a>
-                    <input id="loginBtn" class="button" type="submit" value="Login" />
+                    <input id="loginBtn" class="button-blue" type="submit" value="Login" />
                 </span>
                 </div>
             </form>

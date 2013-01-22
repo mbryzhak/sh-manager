@@ -76,7 +76,7 @@ a#header-sh-manager-link{
     font-size: 14px;
     font-weight: normal;
     text-decoration: none;
-    vertical-align: sub;
+    vertical-align: inherit;
     padding-right: 10px;
 }
 
@@ -148,4 +148,12 @@ div.left{
 div.right{
     float: right;
     width: 50%;
+}
+
+.font-base{
+    color: #000000;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
 }

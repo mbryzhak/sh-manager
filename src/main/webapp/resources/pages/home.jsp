@@ -6,6 +6,8 @@
     </head>
     <body>
         <%@include file="common/header.jsp"%>
-        <h2 align="center">Congrats! You are logged in with username: <b><c:out value="${login}"></c:out></b> and password: <b><c:out value="${password}"></c:out></b></h2>
+        <div>
+
+        </div>
     </body>
 </html>

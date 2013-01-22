@@ -3,9 +3,12 @@
         <div class="header-base-left">
             <a id="header-sh-manager-link" href="/sh-manager">Smart House Manager</a>
         </div>
-        <div class="button-no-style header-base-right">
+        <div class="header-base-right">
             <sec:authorize access="isAuthenticated()">
-                <a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
+                <span class="font-base">
+                    Hello, <b><c:out value="${login}"></c:out>!</b>
+                    <a class="button-no-style" href="<c:url value="/j_spring_security_logout" />"> Logout</a>
+                </span>
             </sec:authorize>
         </div>
     </div>
