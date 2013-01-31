@@ -6,82 +6,64 @@
 <generatorConfiguration>
 
 	<classPathEntry
-		location="${user.home}/.m2/repository/mysql/mysql-connector-java/${mysql.connector.version}/mysql-connector-java-${mysql.connector.version}.jar" />
+		location="/home/mbryzhak/.m2/repository/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar" />
 
 	<context id="sh_manager" targetRuntime="MyBatis3">
 
 		<jdbcConnection 
 				driverClass="com.mysql.jdbc.Driver"
-				connectionURL="jdbc:mysql://localhost:3306/sh_manager_db" 
-				userId="root" 
-				password="password">
+				connectionURL="jdbc:mysql://5.9.2.148:3306/sh_manager_db_mod"
+				userId="shtest"
+				password="!Test@pa$$">
 		</jdbcConnection>
 
 		<!-- Create the java model objects -->
 		<javaModelGenerator 
-				targetPackage="com.master.mybatisgenerated"
+				targetPackage="com.master.mybatis.model"
 				targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
-			<property name="trimStrings" value="true" />
+            <property name="constructorBased" value="true" />
 		</javaModelGenerator>
 
+<!--
 		<sqlMapGenerator
 				targetPackage="sh-manager/mybatis/sqlmap"
 				targetProject="src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
+-->
 
 		<!-- DAO -->
 		<javaClientGenerator 
-				targetPackage="com.master.mybatisgenerated"
+				targetPackage="com.master.mybatis.dao"
 				targetProject="src/main/java" 
-				type="XMLMAPPER">
+				type="ANNOTATEDMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 		<!-- Tables to process -->
-		<table tableName="Users" domainObjectName="User">
-			<columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-			<columnOverride property="userEmail" column="userEmail" />
-			<columnOverride property="userDateCreated" column="userDateCreated" />
-			<columnOverride property="userRole" column="userRole" javaType="com.master.common.type.UserRole" jdbcType="VARCHAR" />
-			<columnOverride property="userFirstName" column="userFirstName" />
-			<columnOverride property="userLastName" column="userLastName" />
-			<columnOverride property="userSex" column="userSex" />
+		<table tableName="users" domainObjectName="Users">
+			<columnOverride property="username" column="username" />
+			<columnOverride property="password" column="password" />
+			<columnOverride property="firstName" column="first_name" />
+			<columnOverride property="lastName" column="last_name" />
+			<columnOverride property="enabled" column="enabled" javaType="java.lang.Boolean" jdbcType="TINYINT" />
+			<columnOverride property="dateCreated" column="date_created" />
 		</table>
 
-		<table tableName="UserCredentials" domainObjectName="UserCredentials">
-			<columnOverride property="credentialUUID" column="credentialUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-			<columnOverride property="userPassword" column="userPassword" />
+		<table tableName="authorities" domainObjectName="Authorities">
+            <columnOverride property="username" column="username" />
+            <columnOverride property="authority" column="authority" javaType="com.master.common.type.UserRole" jdbcType="VARCHAR" />
 		</table>
 		
-		<table tableName="Profiles" domainObjectName="Profile">
-            <columnOverride property="profileUUID" column="profileUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-            <columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-			<columnOverride property="profileName" column="profileName" />
-			<columnOverride property="electricityRate" column="electricityRate" />
-			<columnOverride property="waterRate" column="waterRate" />
-			<columnOverride property="gasRate" column="gasRate" />
-			<columnOverride property="lightsRate" column="lightsRate" />
-			<columnOverride property="temperatureRate" column="temperatureRate" />
-			<columnOverride property="fireProtectionRate" column="fireProtectionRate" />
-			<columnOverride property="stealProtectionRate" column="stealProtectionRate" />
-		</table>
-		
-		<table tableName="Houses" domainObjectName="House">
-			<columnOverride property="houseUUID" column="houseUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-            <columnOverride property="userUUID" column="userUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-            <columnOverride property="profileUUID" column="profileUUID" javaType="java.util.UUID" jdbcType="VARCHAR"
-                            typeHandler="com.master.mybatis.typehandler.UuidTypeHandler"/>
-			<columnOverride property="houseName" column="houseName" />
-			<columnOverride property="houseAddress" column="houseAddress" />
-			<columnOverride property="houseType" column="houseType" />
+		<table tableName="rates" domainObjectName="Rates">
+			<columnOverride property="username" column="username" />
+			<columnOverride property="dateTime" column="datetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+			<columnOverride property="sensor1" column="sensor1" />
+			<columnOverride property="sensor2" column="sensor2" />
+			<columnOverride property="sensor3" column="sensor3" />
+			<columnOverride property="sensor4" column="sensor4" />
+			<columnOverride property="sensor5" column="sensor5" />
 		</table>
 
 	</context>

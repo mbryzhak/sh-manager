@@ -16,8 +16,7 @@
 
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="typeAliasesPackage" value="com.master.mybatisgenerated" />
-        <property name="mapperLocations" value="classpath*:sh-manager/mybatis/sqlmap/*Mapper.xml" />
+        <property name="typeAliasesPackage" value="com.master.mybatis.model" />
         <property name="configurationProperties">
             <props>
                 <prop key="mapUnderscoreToCamelCase">true</prop>
@@ -27,7 +26,6 @@
                 <prop key="useGeneratedKeys">true</prop>
             </props>
         </property>
-        <property name="typeHandlersPackage" value="com.master.mybatis.typehandler" />
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" />
@@ -36,23 +34,18 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.master.mybatisgenerated.UserMapper" />
+    <bean id="usersMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatis.dao.UsersMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="profileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.master.mybatisgenerated.ProfileMapper" />
+    <bean id="authorities" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatis.dao.AuthoritiesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="userCredentialsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.master.mybatisgenerated.UserCredentialsMapper" />
-        <property name="sqlSessionFactory" ref="sessionFactory" />
-    </bean>
-
-    <bean id="houseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.master.mybatisgenerated.HouseMapper" />
+    <bean id="rates" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="com.master.mybatis.dao.RatesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 </beans>
