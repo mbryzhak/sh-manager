@@ -20,8 +20,7 @@
 
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="typeAliasesPackage" value="com.master.mybatisgenerated" />
-        <property name="mapperLocations" value="classpath*:sh-manager/mybatis/sqlmap/*Mapper.xml" />
+        <property name="typeAliasesPackage" value="com.master.mybatis.model" />
         <property name="configurationProperties">
             <props>
                 <prop key="mapUnderscoreToCamelCase">true</prop>
@@ -45,12 +44,12 @@
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="authorities" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="authoritiesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.master.mybatis.dao.AuthoritiesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="rates" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="ratesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.master.mybatis.dao.RatesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>

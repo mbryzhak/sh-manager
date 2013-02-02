@@ -39,12 +39,12 @@
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="authorities" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="authoritiesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.master.mybatis.dao.AuthoritiesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="rates" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <bean id="ratesMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.master.mybatis.dao.RatesMapper" />
         <property name="sqlSessionFactory" ref="sessionFactory" />
     </bean>
