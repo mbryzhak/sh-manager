@@ -9,13 +9,11 @@ var Validator = Validator || {};
         },
 
         appendError: function (message) {
-            $('.ui-state-error').append(message + "<br>");
-            $('.error').removeClass('hidden');
+            $('#loginError').append(message + "<br>").removeClass('hidden');
         },
 
         clearErrors: function () {
-            $('.ui-state-error').empty();
-            $('.error').addClass('hidden');
+            $('#loginError').empty().addClass('hidden');
         }
     }
 })($)

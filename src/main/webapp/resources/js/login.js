@@ -3,31 +3,18 @@ var LoginController = LoginController || {};
 (function($){
     LoginController = {
         initActions: function(){
-            $('#cancelBtn').click(function(){
-                GlobalAction.clearAllFields();
+            $('#login-btn').click(function(){
                 Validator.clearErrors();
-            });
-            $('#loginBtn').click(function(){
-                Validator.clearErrors();
-//                LoginController.validate();
             });
         },
-//
-//        serializeLoginForm: function(){
-//            var dataObj = {
-//                login: GlobalAction.valueAt('#loginField'),
-//                password: GlobalAction.valueAt('#passwordField')
-//            }
-//            return dataObj;
-//        },
 
         validate: function(){
             var isValid = true;
-            if(Validator.isBlank('#loginField')){
+            if(Validator.isBlank('#inputEmail')){
                 Validator.appendError("Email is a required field");
                 isValid = false
             }
-            if(Validator.isBlank('#passwordField')){
+            if(Validator.isBlank('#inputPassword')){
                 Validator.appendError("Password is a required field");
                 isValid = false;
             }
@@ -36,7 +23,6 @@ var LoginController = LoginController || {};
     };
 
     $(function(){
-        GlobalAction.clearAllFields();
         LoginController.initActions();
     });
 })($)

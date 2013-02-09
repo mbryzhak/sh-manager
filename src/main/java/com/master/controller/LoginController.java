@@ -15,14 +15,15 @@ public class LoginController {
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
+    private static final String BAD_CREDENTIALS = "Wrong user email or password";
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String login(@RequestParam String fail, ModelMap model, Principal principal) {
         LOGGER.debug("GET: /login?fail=" + fail);
         if(principal != null){
-            return "redirect:home";
+            return "redirect:/";
         }
         if(fail.equals("true")){
-            model.addAttribute("message", "Wrong user email or password");
+            model.addAttribute("message", BAD_CREDENTIALS);
             return "login";
         }
         model.addAttribute("dateNow", (new Date()).toString());
