@@ -20,7 +20,7 @@
     </div>
     <div class="control-group">
         <div class="controls" style="margin-left: 256px">
-            <button class="btn btn-link" style="text-decoration: none">Cancel</button>
+            <a class="btn btn-link" href="/sh-manager/" style="text-decoration: none">Cancel</a>
             <button id="login-btn" type="submit" class="btn">Sign in</button>
         </div>
     </div>

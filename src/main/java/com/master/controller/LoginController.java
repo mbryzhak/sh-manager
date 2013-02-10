@@ -16,6 +16,7 @@ public class LoginController {
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
     private static final String BAD_CREDENTIALS = "Wrong user email or password";
+
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String login(@RequestParam String fail, ModelMap model, Principal principal) {
         LOGGER.debug("GET: /login?fail=" + fail);
