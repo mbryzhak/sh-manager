@@ -32,10 +32,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/sh-manager/about">About</a>
+                            <a href="/sh-manager/contacts">Contacts</a>
                         </li>
                         <li>
-                            <a href="/sh-manager/contacts">Contacts</a>
+                            <a href="/sh-manager/about">About</a>
                         </li>
                     </ul>
                     <sec:authorize access="!isAuthenticated()">
