@@ -25,5 +25,31 @@
 <div class="page-header">
     <h3>Recent Activity</h3>
 </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>DateTime</td>
+                <td>Sensor 1</td>
+                <td>Sensor 2</td>
+                <td>Sensor 3</td>
+                <td>Sensor 4</td>
+                <td>Sensor 5</td>
+            </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="i" begin="1" end="10">
+            <tr>
+                <td><c:out value="${i}"></c:out></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </sec:authorize>
 <%@include file="footer.jsp"%>
