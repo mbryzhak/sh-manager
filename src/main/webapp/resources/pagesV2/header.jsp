@@ -7,6 +7,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -26,7 +27,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li>
-                            <a href="/sh-manager/">
+                            <a href="/sh-manager/home">
                                 <i class="icon-home icon-white"></i>
                                 Home
                             </a>
