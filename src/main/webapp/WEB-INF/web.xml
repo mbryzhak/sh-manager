@@ -6,12 +6,14 @@
          version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee">
     <display-name>sh-manager</display-name>
 
+    <!--Define main servlet - mvc-dispatcher-->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <!--Process all http requests that came to mvc-dispatcher servlet-->
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
@@ -21,6 +23,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!--Define location of the application context-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:sh-manager/spring/application-context.xml</param-value>
@@ -35,15 +38,22 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
+    <!--Show not found page for not case of 404 error-->
     <error-page>
         <error-code>404</error-code>
         <location>/resources/pagesV2/error/404.jsp</location>
     </error-page>
 
+    <!--Show exception page in case of internal server error-->
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/resources/pagesV2/error/exception.jsp</location>
     </error-page>
+
+    <!--Timeout for closing session if user is inactive-->
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
 
 </web-app>
