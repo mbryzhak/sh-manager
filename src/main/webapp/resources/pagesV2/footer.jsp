@@ -4,7 +4,7 @@
             <style>
                 .footer {
                     text-align: center;
-                    padding: 30px 0;
+                    padding: 10px 0;
                     margin-top: 70px;
                     border-top: 1px solid #e5e5e5;
                     background-color: #f5f5f5;
