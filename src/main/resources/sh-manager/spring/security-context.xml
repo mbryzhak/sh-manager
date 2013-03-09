@@ -10,8 +10,8 @@
     <bean id="customAuthenticationProvider" class="com.master.support.AuthenticationProviderImpl" />
 
     <security:http use-expressions="true" auto-config="true">
-        <security:intercept-url pattern="/home*" access="hasRole('MANAGER')"/>
-        <security:form-login login-page="/login?fail=false" default-target-url="/home"
+        <security:intercept-url pattern="/rates*" access="hasRole('MANAGER')"/>
+        <security:form-login login-page="/login?fail=false" default-target-url="/rates"
                              authentication-failure-url="/login?fail=true"/>
         <security:logout logout-success-url="/"/>
     </security:http>

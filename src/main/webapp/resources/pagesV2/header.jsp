@@ -27,7 +27,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li>
-                            <a href="/sh-manager/home">
+                            <a href="/sh-manager/rates">
                                 <i class="icon-home icon-white"></i>
                                 Home
                             </a>

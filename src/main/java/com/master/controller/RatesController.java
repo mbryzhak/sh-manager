@@ -1,26 +1,30 @@
 package com.master.controller;
 
+import com.master.form.RatesForm;
+import com.master.helper.JsonHelper;
 import com.master.mybatis.dao.RatesMapper;
 import com.master.mybatis.model.Rates;
 import com.master.mybatis.model.RatesExample;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import sun.net.httpserver.HttpServerImpl;
 
-import javax.security.auth.login.CredentialException;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Controller
-public class HomeController {
+public class RatesController {
 
-    private static final Logger LOGGER = Logger.getLogger(HomeController.class);
+    private static final Logger LOGGER = Logger.getLogger(RatesController.class);
 
     private static final int RATES_COUNT = 10;
 
@@ -28,18 +32,35 @@ public class HomeController {
     RatesMapper ratesMapper;
 
     /**
-     * Main view page in project.
+     * Display rates page with last <code>RATES_COUNT</code> rate values in table
      * Creates new row in db after each call.
      * @param model
      * @param principal
      * @return
      */
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/rates", method = RequestMethod.GET)
     public String viewHomeForm(ModelMap model, Principal principal) {
         writeDummyRatesToDb(principal);
         List<Rates> ratesList = ratesMapper.selectByExample(lastRates(principal));
         model.addAttribute("ratesList", ratesList.toArray());
-        return "home";
+        return "rates";
+    }
+
+    /**
+     * Update rates. Will update all rates if no rateNumber specified
+     * @param rateNumber
+     */
+    @RequestMapping(value = "/updateRates", method = RequestMethod.POST)
+    public ResponseEntity updateAllRates(@RequestParam("rateNumber") String rateNumber,
+                                         @RequestParam("requestJson") String newRates){
+        LOGGER.debug(String.format("New rateNumber to be set: %s", rateNumber));
+        RatesForm rates = JsonHelper.get(newRates, RatesForm.class);
+        LOGGER.debug(String.format("New rate configs:\n%s", rates.toString()));
+        if(rates == null) {
+            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<String>(HttpStatus.ACCEPTED);
+        }
     }
 
     /**
@@ -51,6 +72,11 @@ public class HomeController {
         return (float) (10 + Math.random() * 90);
     }
 
+    /**
+     * Temporary method for creating rate values
+     * TODO: remove after getting real data
+     * @param principal
+     */
     private void writeDummyRatesToDb(Principal principal){
         Rates rates = new Rates();
         rates.setUsername(principal.getName());

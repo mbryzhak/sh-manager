@@ -42,18 +42,18 @@
     <!--Show not found page for not case of 404 error-->
     <error-page>
         <error-code>404</error-code>
-        <location>/resources/pagesV2/error/404.jsp</location>
+        <location>/resources/pagesV2/404.jsp</location>
     </error-page>
 
     <!--Show exception page in case of internal server error-->
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
-        <location>/resources/pagesV2/error/exception.jsp</location>
+        <location>/resources/pagesV2/exception.jsp</location>
     </error-page>
 
-    <!--Timeout for closing session if user is inactive-->
+    <!--Timeout for closing session if user is inactive last 20 min-->
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>20</session-timeout>
     </session-config>
 
 </web-app>
