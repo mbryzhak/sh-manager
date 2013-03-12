@@ -43,15 +43,15 @@
         <button type="button" class="close">&times;</button>
         <strong>Success!</strong> Rate(s) was updated successfully
     </div>
-    <p class="muted">Enter default value(int|float) for each sensor. Leave field empty to disable a sensor</p>
+    <p class="muted">Enter default value(int|float) for each sensor. Put 0 (zero) to disable a sensor</p>
     <c:forEach var="i" begin="1" end="5">
         <div class="control-group">
-            <input id="sensor<c:out value="${i}" />" class="input-medium" type="text" placeholder="Sensor <c:out value="${i}" />">
+            <input id="sensor<c:out value="${i}" />" class="input-medium" type="text" placeholder="Sensor <c:out value="${i}" />" onkeypress="Validator.validateNumber(event)">
             <span class="help-inline muted" style="font-size: 14px; margin-left: 20px">Here should be some detailed description of what your <strong>Sensor<c:out value="${i}"></c:out></strong> is used for</span>
         </div>
     </c:forEach>
     <div>
-        <a id="updateAllRates" class="btn btn-success" onclick="Rates.updateSensorRates(0)">Update all rates</a>
+        <a id="updateAllRates" class="btn btn-success">Update all rates</a>
         <%--<a class="btn btn-inverse" type="submit">Current rates</a>--%>
     </div>
 </div>

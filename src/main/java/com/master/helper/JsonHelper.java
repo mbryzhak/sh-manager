@@ -21,8 +21,11 @@ public class JsonHelper {
             return gson.fromJson(json, type);
         } catch (JsonSyntaxException e) {
             LOGGER.error(String.format("Error parsing json string: %s", json));
+            return null;
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
     }
 }

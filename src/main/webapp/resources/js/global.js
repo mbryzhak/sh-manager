@@ -15,6 +15,11 @@ var GlobalAction = GlobalAction || {};
 
         valueAt: function (target) {
             return $(target).val();
+        },
+
+        isEmpty: function (target) {
+            return GlobalAction.valueAt(target) == ""
         }
+
     }
 })($)

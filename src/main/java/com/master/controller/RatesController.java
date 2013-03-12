@@ -7,16 +7,12 @@ import com.master.mybatis.model.Rates;
 import com.master.mybatis.model.RatesExample;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import sun.net.httpserver.HttpServerImpl;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.Date;
 import java.util.List;
@@ -51,15 +47,16 @@ public class RatesController {
      * @param rateNumber
      */
     @RequestMapping(value = "/updateRates", method = RequestMethod.POST)
-    public ResponseEntity updateAllRates(@RequestParam("rateNumber") String rateNumber,
-                                         @RequestParam("requestJson") String newRates){
+    public void updateAllRates(@RequestParam("rateNumber") String rateNumber,
+                                         @RequestParam("requestJson") String newRates,
+                                         HttpServletResponse response) throws IOException {
         LOGGER.debug(String.format("New rateNumber to be set: %s", rateNumber));
         RatesForm rates = JsonHelper.get(newRates, RatesForm.class);
-        LOGGER.debug(String.format("New rate configs:\n%s", rates.toString()));
         if(rates == null) {
-            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
-            return new ResponseEntity<String>(HttpStatus.ACCEPTED);
+            response.setStatus(HttpServletResponse.SC_OK);
+            LOGGER.debug(String.format("New rate configs: %s", rates.toString()));
         }
     }
 
