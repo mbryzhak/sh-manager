@@ -23,7 +23,8 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:sh-manager/env/sh-manager-${dev.env}.properties</value>
+                <!--TODO: hardcoded value due to failures on the openshift-->
+                <value>classpath:sh-manager/env/sh-manager-test.properties</value>
             </list>
         </property>
     </bean>
