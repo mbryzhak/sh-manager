@@ -37,13 +37,13 @@
     </div>
     <div id="rateUpdateError" class="alert alert-error hidden">
         <button type="button" class="close">&times;</button>
-        <strong>Error!</strong> Rate(s) was not updated. Please try one more time
+        <strong>Error!</strong> Rate(s) was not updated. Please check rate settings and try one more time
     </div>
     <div id="rateUpdateSuccess" class="alert alert-success hidden">
         <button type="button" class="close">&times;</button>
         <strong>Success!</strong> Rate(s) was updated successfully
     </div>
-    <p class="muted">Enter default value(int|float) for each sensor. Put 0 (zero) to disable a sensor</p>
+    <p class="muted">Enter default value(int|float) for each sensor. Leave field empty to disable a sensor</p>
     <c:forEach var="i" begin="1" end="5">
         <div class="control-group">
             <input id="sensor<c:out value="${i}" />" class="input-medium" type="text" placeholder="Sensor <c:out value="${i}" />" onkeypress="Validator.validateNumber(event)">

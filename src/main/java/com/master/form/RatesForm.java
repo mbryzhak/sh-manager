@@ -58,11 +58,11 @@ public class RatesForm {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Sensor1: ").append(sensor1);
-        sb.append("Sensor2: ").append(sensor2);
-        sb.append("Sensor3: ").append(sensor3);
-        sb.append("Sensor4: ").append(sensor4);
-        sb.append("Sensor5: ").append(sensor5);
+        sb.append("Sensor1: ").append(sensor1).append("; ");
+        sb.append("Sensor2: ").append(sensor2).append("; ");
+        sb.append("Sensor3: ").append(sensor3).append("; ");
+        sb.append("Sensor4: ").append(sensor4).append("; ");
+        sb.append("Sensor5: ").append(sensor5).append("; ");
         return sb.toString();
     }
 }
