@@ -12,11 +12,8 @@ public class ShServiceRestClient {
 
     private static final Logger LOGGER = Logger.getLogger(ShServiceRestClient.class);
 
-    @Autowired
-    private Client client;
-
     public String get(){
-        WebResource resource = client.resource("http://www.google.com.ua/");
+        WebResource resource = new Client().resource("http://www.google.com/");
         ClientResponse response = resource.accept(MediaType.TEXT_HTML_TYPE).get(ClientResponse.class);
         if(response.getStatus() != 200){
             throw new RuntimeException("HTTP error code" + response.getStatus());
