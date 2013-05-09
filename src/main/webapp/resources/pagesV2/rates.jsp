@@ -1,17 +1,50 @@
 <%@include file="header.jsp"%>
 <div class="page-header">
-    <h3>Recent Activity</h3>
+    <h3>Recent Activity Graph</h3>
+</div>
+<div class="tabbable tabs-left">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#sensor1_tab" data-toggle="tab" onmouseup="basic(1);">Sensor 1</a>
+        </li>
+        <li>
+            <a href="#sensor2_tab" data-toggle="tab" onmouseup="basic(2);">Sensor 2</a>
+        </li>
+        <li>
+            <a href="#sensor3_tab" data-toggle="tab" onmouseup="basic(3);">Sensor 3</a>
+        </li>
+        <li>
+            <a href="#sensor4_tab" data-toggle="tab" onmouseup="basic(4);">Sensor 4</a>
+        </li>
+        <li>
+            <a href="#sensor5_tab" data-toggle="tab" onmouseup="basic(5);">Sensor 5</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="sensor1_tab">
+            <div class="flotr-example" style="display: block">
+                <div class="flotr-example-editor">
+                    <div class="editor">
+                        <div id="recent_activity_graph1" class="render" style="width: 100%; height: 350px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-header">
+    <h3>Recent Activity Table</h3>
 </div>
 <table class="table table-striped">
     <thead>
         <tr>
             <td>#</td>
             <td>DateTime</td>
-            <td>Sensor 1</td>
-            <td>Sensor 2</td>
-            <td>Sensor 3</td>
-            <td>Sensor 4</td>
-            <td>Sensor 5</td>
+            <c:forEach var="i" begin="1" end="5">
+                <td>Sensor <c:out value="${i}" /></td>
+            </c:forEach>
         </tr>
     </thead>
     <tbody>
@@ -55,4 +88,47 @@
         <%--<a class="btn btn-inverse" type="submit">Current rates</a>--%>
     </div>
 </div>
-<%@include file="footer.jsp"%>еtw
+<%@include file="footer.jsp"%>
+<script>
+    function basic(sensor_number) {
+
+        var s1 = [];
+        var s2 = [];
+        var s3 = [];
+        var s4 = [];
+        var s5 = [];
+        var to_draw = [];
+
+        <c:forEach var="j" begin="0" end="49">
+            s1.push([<c:out value="${j}" />, <c:out value="${ratesListLarge[j].sensor1}" />]);
+            s2.push([<c:out value="${j}" />, <c:out value="${ratesListLarge[j].sensor2}" />]);
+            s3.push([<c:out value="${j}" />, <c:out value="${ratesListLarge[j].sensor3}" />]);
+            s4.push([<c:out value="${j}" />, <c:out value="${ratesListLarge[j].sensor4}" />]);
+            s5.push([<c:out value="${j}" />, <c:out value="${ratesListLarge[j].sensor5}" />]);
+        </c:forEach>
+
+        switch(sensor_number) {
+            case 1: to_draw = s1;
+                break;
+            case 2: to_draw = s2;
+                break;
+            case 3: to_draw = s3;
+                break;
+            case 4: to_draw = s4;
+                break;
+            case 5: to_draw = s5;
+                break;
+            default : break;
+        }
+
+        Flotr.draw(document.getElementById('recent_activity_graph1'), [to_draw], {
+            xaxis: {
+                minorTickFreq: 4
+            },
+            grid: {
+                minorVerticalLines: true
+            }
+        });
+    }
+    basic(1);
+</script>

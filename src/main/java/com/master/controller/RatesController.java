@@ -23,6 +23,7 @@ public class RatesController {
     private static final Logger LOGGER = Logger.getLogger(RatesController.class);
 
     private static final int RATES_COUNT = 10;
+    private static final int RATES_COUNT_LARGE = 50;
 
     @Autowired
     RatesMapper ratesMapper;
@@ -37,8 +38,10 @@ public class RatesController {
     @RequestMapping(value = "/rates", method = RequestMethod.GET)
     public String viewHomeForm(ModelMap model, Principal principal) {
         writeDummyRatesToDb(principal);
-        List<Rates> ratesList = ratesMapper.selectByExample(lastRates(principal));
+        List<Rates> ratesList = ratesMapper.selectByExample(lastRates(principal, RATES_COUNT));
+        List<Rates> ratesListLarge = ratesMapper.selectByExample(lastRates(principal, RATES_COUNT_LARGE));
         model.addAttribute("ratesList", ratesList.toArray());
+        model.addAttribute("ratesListLarge", ratesListLarge.toArray());
         return "rates";
     }
 
@@ -61,12 +64,12 @@ public class RatesController {
     }
 
     /**
-     * Generates random float value in range 10..100
+     * Generates random float value in range 10..500
      * TODO: remove after getting real data
      * @return random <code>float</code> value
      */
     private float getRandom(){
-        return (float) (10 + Math.random() * 90);
+        return (float) (10 + Math.random() * 50);
     }
 
     /**
@@ -91,10 +94,10 @@ public class RatesController {
      * @param principal
      * @return example
      */
-    private RatesExample lastRates(Principal principal){
+    private RatesExample lastRates(Principal principal, int count){
         RatesExample example = new RatesExample();
         example.createCriteria().andUsernameEqualTo(principal.getName());
-        example.setOrderByClause("datetime desc limit " + RATES_COUNT);
+        example.setOrderByClause("datetime desc limit " + count);
         return example;
     }
 }
