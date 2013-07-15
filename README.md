@@ -1,4 +1,4 @@
-sh-manager
+ :sh-manager
 ==========
 
 Use this file to remember what and how!
