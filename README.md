@@ -1,4 +1,5 @@
-sh-manager
+sh-manager 
+[![Build Status](https://travis-ci.org/mbryzhak/sh-manager.svg?branch=master)](https://travis-ci.org/mbryzhak/sh-manager)
 ==========
 
 Use this file to remember what and how!
